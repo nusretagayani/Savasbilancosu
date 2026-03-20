@@ -2533,6 +2533,8 @@
             afterDraw(chart) {
                 // 2026 sütununun altına "tahmini" notu
                 const ctx = chart.ctx;
+                const sc = Math.min(1, chart.width / 580);
+                const isNarrow = sc < 0.85;
                 const meta0 = chart.getDatasetMeta(0);
                 if (!meta0.data[2]) return;
                 const { x } = meta0.data[2].getProps(['x'], true);
@@ -2542,7 +2544,8 @@
                 ctx.fillStyle = 'rgba(180,83,9,0.8)';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'top';
-                ctx.fillText('* Tahmini — savaş uzarsa artacak', x, bottom + 38);
+                // Mobilde x ekseninin hemen altına yaz (daha az offset)
+                ctx.fillText('* Tahmini — savaş uzarsa artacak', x, bottom + (isNarrow ? 18 : 38));
                 ctx.restore();
             }
         };
