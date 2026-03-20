@@ -1140,10 +1140,8 @@
             <span>İsrail–ABD / İran Çatışması — Ekonomik İzleme</span>
         </div>
         <div class="topbar-ticker">
-            <div class="ticker-item"><span>ILS/USD</span><span class="ticker-down">3.82 ▼0.8%</span></div>
-            <div class="ticker-item"><span>TA-125</span><span class="ticker-down">1,847 ▼5.2%</span></div>
-            <div class="ticker-item"><span>OIL (WTI)</span><span class="ticker-up">$112.4 ▲18.3%</span></div>
-            <div class="ticker-item"><span>GOLD</span><span class="ticker-up">$2,891 ▲4.1%</span></div>
+            <div class="ticker-item"><span>BRENT</span><span id="tickerBrent" class="ticker-up">—</span></div>
+            <div class="ticker-item"><span>TTF GAZ</span><span id="tickerTtf" class="ticker-up">—</span></div>
             <div class="ticker-item"><span>GÜN</span><span style="color:#fff">21</span></div>
         </div>
     </div>
@@ -3032,6 +3030,18 @@
         renderChart('ttfChart', ttfLabels, TTF_PRICES, ttfMarkIdx, 'rgba(8,145,178,1)', 'EUR/MWh', 2);
         hideLoading('ttfLoading');
         document.getElementById('ttfCurrentPrice').textContent = `€${TTF_LIVE.toFixed(2)} /MWh`;
+
+        // ─── Ticker güncelle (canlı fiyat vs önceki gün kapanış) ───
+        function setTicker(id, livePrice, prevClose, prefix) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const pct = (livePrice - prevClose) / prevClose * 100;
+            const isUp = pct >= 0;
+            el.className = isUp ? 'ticker-up' : 'ticker-down';
+            el.textContent = `${prefix}${livePrice.toFixed(2)} ${isUp ? '▲' : '▼'}${Math.abs(pct).toFixed(1)}%`;
+        }
+        setTicker('tickerBrent', BRENT_LIVE, BRENT_PRICES[BRENT_PRICES.length - 1], '$');
+        setTicker('tickerTtf',   TTF_LIVE,   TTF_PRICES[TTF_PRICES.length - 1],   '€');
     })();
 
     // ─── ANIMATE BREAKDOWN BARS ───
