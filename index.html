@@ -3715,6 +3715,8 @@
             afterDatasetsDraw(chart) {
                 const ctx = chart.ctx;
                 const meta = chart.getDatasetMeta(0);
+                const sc = Math.min(1, chart.width / 580);
+                const fontSize = Math.max(6, Math.round(9 * sc));
                 const colorMap = [
                     '#1d4ed8','#1d4ed8','#1d4ed8','#1d4ed8','#1d4ed8',
                     '#b45309','#b45309',
@@ -3722,22 +3724,25 @@
                     '#b91c1c','#b91c1c','#b91c1c'
                 ];
                 meta.data.forEach((bar, i) => {
-                    const { x, y, base } = bar.getProps(['x','y','base'], true);
+                    const { x, y, base, width: bw } = bar.getProps(['x','y','base','width'], true);
                     const barH = Math.abs(base - y);
+                    const barW = Math.abs(bw || 20);
                     const barMid = (y + base) / 2;
-                    // Turist sayısı — bar içi veya altı
+                    // Turist sayısı — bar içi veya üstü
                     ctx.save();
-                    ctx.font = '600 9px Sora, sans-serif';
+                    ctx.font = `600 ${fontSize}px Sora, sans-serif`;
                     ctx.textAlign = 'center';
-                    if (barH > 18) {
+                    const lblW = ctx.measureText(counts[i]).width;
+                    if (barH > fontSize * 2 && lblW < barW - 2) {
                         ctx.fillStyle = '#ffffff';
                         ctx.textBaseline = 'middle';
                         ctx.fillText(counts[i], x, barMid);
-                    } else {
+                    } else if (lblW < barW + 4) {
                         ctx.fillStyle = colorMap[i];
                         ctx.textBaseline = 'bottom';
                         ctx.fillText(counts[i], x, y - 2);
                     }
+                    // lblW >= barW + 4 ise hiç yazma (taşar)
                     ctx.restore();
                 });
             }
