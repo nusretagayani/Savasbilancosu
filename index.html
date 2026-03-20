@@ -2651,6 +2651,14 @@
             id: 'inflBars',
             afterDatasetsDraw(chart) {
                 const ctx = chart.ctx;
+                const sc = Math.min(1, chart.width / 580);
+                const isNarrow = sc < 0.85;
+                const lblFont  = Math.max(7, Math.round(10 * sc));
+                const badgeFont= Math.max(6, Math.round(8  * sc));
+                const badgeH   = Math.max(11, Math.round(14 * sc));
+                const badgePad = Math.max(6,  Math.round(10 * sc));
+                const badgeOff = Math.round(40 * sc);
+
                 chart.data.datasets.forEach((dataset, dsIdx) => {
                     const meta = chart.getDatasetMeta(dsIdx);
                     meta.data.forEach((bar, i) => {
@@ -2662,9 +2670,9 @@
                             // Mavi — Beklenti %X,X
                             const lbl = '%' + bekData[i].toFixed(1).replace('.', ',');
                             ctx.save();
-                            ctx.font = '600 10px Sora, sans-serif';
+                            ctx.font = `600 ${lblFont}px Sora, sans-serif`;
                             ctx.textAlign = 'center';
-                            if (barH > 20) {
+                            if (barH > lblFont * 2) {
                                 ctx.fillStyle = '#ffffff';
                                 ctx.textBaseline = 'middle';
                                 ctx.fillText(lbl, x, barMid);
@@ -2679,14 +2687,14 @@
                             // Kırmızı — Gerçekleşen %X,X + ENFLASYON FARKI badge
                             const lbl = '%' + gerData[i].toFixed(2).replace('.', ',').replace(/,?0+$/, '');
                             const fark = farklar[i];
-                            const badgeText = '▲ ENFLASYON FARKI';
+                            const badgeText = isNarrow ? 'ENF. FARKI' : '▲ ENFLASYON FARKI';
 
                             ctx.save();
                             // Badge
-                            ctx.font = '700 8px Sora, sans-serif';
-                            const bw = ctx.measureText(badgeText).width + 10;
-                            const bh = 14;
-                            const by = Math.max(y - 40, chart.chartArea.top + 2);
+                            ctx.font = `700 ${badgeFont}px Sora, sans-serif`;
+                            const bw = ctx.measureText(badgeText).width + badgePad;
+                            const bh = badgeH;
+                            const by = Math.max(y - badgeOff, chart.chartArea.top + 2);
                             const bx = Math.max(chart.chartArea.left, Math.min(x - bw / 2, chart.chartArea.right - bw));
                             ctx.fillStyle = 'rgba(217,119,6,0.9)';
                             ctx.beginPath();
@@ -2698,7 +2706,7 @@
                             ctx.fillText(badgeText, bx + bw / 2, by + bh / 2);
 
                             // Fark değeri (dar ekranda gizle)
-                            if (window.innerWidth >= 600) {
+                            if (!isNarrow) {
                                 ctx.font = '600 9px Sora, sans-serif';
                                 ctx.fillStyle = 'rgba(180,83,9,0.95)';
                                 ctx.textBaseline = 'bottom';
@@ -2706,7 +2714,7 @@
                             }
 
                             // % etiketi (bar içi veya üstü)
-                            ctx.font = '600 10px Sora, sans-serif';
+                            ctx.font = `600 ${lblFont}px Sora, sans-serif`;
                             ctx.textBaseline = 'middle';
                             ctx.fillStyle = i === 2 ? '#b91c1c' : '#ffffff';
                             ctx.fillText(lbl, x, barMid);
@@ -2752,7 +2760,17 @@
                     }
                 },
                 scales: {
-                    x: { grid: { display: false }, ticks: { font: { size: 9 } } },
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { size: 9 },
+                            callback: function(value, index) {
+                                const shortLabels = [['7 EKİM','2023'], ['12 GÜN','2025'], ['28 ŞUBAT','2026']];
+                                if (this.chart.width < 494) return shortLabels[index];
+                                return labels[index];
+                            }
+                        }
+                    },
                     y: {
                         grid: { color: 'rgba(0,0,0,0.04)' },
                         ticks: { callback: v => `%${v}`, font: { size: 9 } },
