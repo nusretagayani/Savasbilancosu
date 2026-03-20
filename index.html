@@ -2352,12 +2352,13 @@
                     borderWidth: borderWidthR,
                     borderRadius: 3,
                     borderSkipped: false,
+                    maxBarThickness: SKIP ? 28 : 48,
                 }]
             },
             options: {
                 responsive: true,
                 animation: false,
-                layout: { padding: { right: SKIP ? 14 : 0 } },
+                layout: { padding: { right: SKIP ? 24 : 0 } },
                 plugins: {
                     legend: { display: false },
                     tooltip: {
