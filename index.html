@@ -901,6 +901,86 @@
             .hero-title { font-size: 28px; }
         }
 
+        /* ─── MOBILE RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            /* Chart tabs: allow wrapping */
+            .chart-tabs { flex-wrap: wrap; gap: 2px; }
+            .chart-tab-btn { font-size: 10px; padding: 6px 9px; }
+
+            /* Chart header: stack vertically */
+            .chart-header { flex-direction: column; align-items: flex-start; }
+            .chart-header > div:last-child { text-align: left !important; }
+
+            /* Override white-space nowrap */
+            .chart-title, .chart-sub, .metric-label,
+            .breakdown-cat-sub, .breakdown-name, .breakdown-cat-title,
+            .scenario-title, .source-meta, .source-title { white-space: normal; }
+
+            /* Hormuz inner grid: single column */
+            .hormuz-tables-grid { grid-template-columns: 1fr !important; }
+
+            /* Brent + TTF grid: override inline style */
+            .chart-grid-2 { grid-template-columns: 1fr !important; }
+
+            /* Secondary metrics: override inline 4-col */
+            .metrics-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+            /* Source item: stack download button */
+            .source-item { grid-template-columns: 40px 1fr; }
+            .source-item .source-link { grid-column: 1 / -1; margin-top: 4px; }
+
+            /* Footer: single column */
+            .footer-inner { grid-template-columns: 1fr; }
+            .footer-right { text-align: left; }
+            .footer-links { justify-content: flex-start; }
+
+            /* Nav: hide update text */
+            .nav-updated { display: none; }
+
+            /* Legend row: tighter */
+            .legend-row { gap: 8px; }
+
+            /* Modal title smaller */
+            .modal-title { font-size: 26px; }
+            .modal-content { padding: 60px 16px 80px; }
+
+            /* Reduce section padding */
+            .section { padding: 36px 0; }
+
+            /* Hormuz stats: smaller font */
+            .hstat-val { font-size: 15px; }
+
+            /* Data tables: compact on mobile so both columns fit */
+            .data-table { font-size: 12px; }
+            .data-table td, .data-table th { padding: 8px 10px; }
+            .data-table td:last-child,
+            .data-table th:last-child { width: 72px; min-width: 72px; }
+
+            /* Breakdown summary table: hide low-priority columns on mobile */
+            .stat-table-wrap th:nth-child(4),
+            .stat-table-wrap td:nth-child(4),
+            .stat-table-wrap th:nth-child(5),
+            .stat-table-wrap td:nth-child(5),
+            .stat-table-wrap th:nth-child(6),
+            .stat-table-wrap td:nth-child(6) { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            /* Single column everything */
+            .metrics-grid { grid-template-columns: 1fr !important; }
+            .breakdown-grid { grid-template-columns: 1fr !important; }
+
+            /* Chart tabs: even smaller */
+            .chart-tab-btn { font-size: 9px; padding: 5px 7px; }
+
+            /* Hero */
+            .hero-title { font-size: 24px; }
+            .hero-days { font-size: 36px; }
+
+            /* Metric value */
+            .metric-value { font-size: 20px; }
+        }
+
         /* ─── ANIMATIONS ─── */
         .fade-in {
             opacity: 0;
@@ -1479,7 +1559,7 @@
                     </div>
                     <span class="chart-badge" style="background:var(--red-light);color:var(--red);border-color:rgba(220,38,38,0.2)">KAPALI · %20</span>
                 </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px;align-items:start;">
+                <div class="hormuz-tables-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px;align-items:start;">
                     <!-- Sol: Birleşik tablolar -->
                     <div>
                         <div style="font-size:11px;font-family:var(--font-mono);color:var(--text-2);font-weight:600;margin-bottom:8px;letter-spacing:.02em;">Hürmüz Boğazı'ndan Geçen Dünya Petrol &amp; LNG Arzının Payı</div>
@@ -1698,6 +1778,22 @@
                     <div class="accordion-body">
                         <p><strong>Bu grafik nedir?</strong> Avrupa'nın gösterge doğalgaz fiyatı olan TTF'nin 20 Şubat 2026'dan bugüne haftalık seyrini göstermektedir. Rusya–Ukrayna geriliminin yarattığı kırılgan zemin üzerine eklenen İsrail–İran savaşının enerji piyasalarına etkisi izlenmektedir.</p>
                         <p>Hürmüz Boğazı'nın kapanmasıyla birlikte bölgeden geçen LNG arzı da sekteye uğramış, bu durum küresel gaz fiyatlarını yukarı çekerek Avrupa piyasalarına doğrudan yansımıştır. Savaşın tarafı olmayan Avrupa ülkeleri, yükselen enerji faturalarıyla başa çıkmak zorunda kalmaktadır. Artan gaz fiyatları Avrupa'nın enflasyon beklentilerini yukarı yönlü baskılamakta, hane halkının yaşam maliyetini artırmakta ve Avrupa hükümetleri üzerinde enerji sübvansiyonu ile tüketiciyi koruma tedbirleri için ciddi bir mali yük oluşturmaktadır.</p>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAcc(this)">
+                        <div class="accordion-header-left">
+                            <span class="accordion-num">08</span>
+                            <span class="accordion-title-text">İsrail Kredi Risk Primi (CDS)</span>
+                        </div>
+                        <span class="accordion-chevron">▼</span>
+                    </div>
+                    <div class="accordion-body">
+                        <p><strong>Bu grafik nedir?</strong> CDS (Kredi Temerrüt Takası), bir ülkenin ya da şirketin borcunu ödeyememesi durumuna karşı alınan bir tür finansal sigortadır. CDS primi ne kadar yüksekse, piyasalar o ülkenin o kadar riskli olduğunu düşünüyor demektir. Bu grafik, İsrail'in CDS primini diğer gelişmiş ülkelerle (Almanya, Güney Kore, Birleşik Krallık) karşılaştırmalı olarak göstermektedir.</p>
+                        <p>İsrail, gelir düzeyi, teknoloji altyapısı ve kurumsal yapısı itibarıyla gelişmiş ülke kategorisinde yer almaktadır. Ancak CDS verileri, piyasaların İsrail'i bu kategorideki diğer ülkelerden belirgin biçimde daha riskli gördüğünü ortaya koymaktadır: İsrail'in CDS primi <strong>~75–89 baz puan</strong> arasında seyrederken Almanya <strong>~7–9</strong>, Birleşik Krallık <strong>~16–19</strong>, Güney Kore ise <strong>~22–29</strong> baz puan bandında kalmaktadır. Bu fark tesadüfi değildir; ardı ardına yaşanan savaşların yarattığı kronik belirsizliğin doğrudan bir yansımasıdır.</p>
+                        <p>Yüksek CDS priminin somut ekonomik sonuçları vardır. Her şeyden önce <strong>borçlanma maliyeti</strong> artar: devlet tahvili faizleri yükselir, kamu harcamalarının finansmanı pahalanır. Bunun yanında <strong>yabancı yatırım</strong> caydırıcı hale gelir; yüksek risk algısı, özellikle uzun vadeli sermaye yatırımları açısından İsrail'i rakip ülkelere kıyasla dezavantajlı konuma düşürür. Söz konusu dezavantajın temelinde savaşların yarattığı siyasi ve ekonomik belirsizlik yatmaktadır. Çatışmalar sona ermedikçe bu risk priminin kalıcı olarak gerilemesi mümkün görünmemektedir.</p>
                     </div>
                 </div>
 
@@ -2140,15 +2236,17 @@
                         ctx.restore();
                     }
 
-                    // $ miktarı — bar dışı, üstte
-                    const colorMap2 = ['#1d4ed8','#1d4ed8','#1d4ed8','#b45309','#1d4ed8','#047857','#b91c1c','#b91c1c','#b91c1c','#b91c1c'];
-                    ctx.save();
-                    ctx.font = '500 9px Sora, sans-serif';
-                    ctx.fillStyle = colorMap2[i];
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'bottom';
-                    ctx.fillText(amounts[i], x, barTop - 5);
-                    ctx.restore();
+                    // $ miktarı — bar dışı, üstte (dar ekranda gizle)
+                    if (window.innerWidth >= 600) {
+                        const colorMap2 = ['#1d4ed8','#1d4ed8','#1d4ed8','#b45309','#1d4ed8','#047857','#b91c1c','#b91c1c','#b91c1c','#b91c1c'];
+                        ctx.save();
+                        ctx.font = '500 9px Sora, sans-serif';
+                        ctx.fillStyle = colorMap2[i];
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        ctx.fillText(amounts[i], x, barTop - 5);
+                        ctx.restore();
+                    }
                 });
             }
         };
@@ -2295,8 +2393,10 @@
                             ctx.font = '700 8px Sora, sans-serif';
                             const bw = ctx.measureText(badgeText).width + 10;
                             const bh = 14;
-                            const by = Math.max(y - 40, chart.chartArea.top + 2);
-                            const bx = x - bw / 2;
+                            const by = (window.innerWidth < 600 && isProjection)
+                                ? Math.max(y - bh - 6, chart.chartArea.top + 2)
+                                : Math.max(y - 40, chart.chartArea.top + 2);
+                            const bx = Math.max(chart.chartArea.left, Math.min(x - bw / 2, chart.chartArea.right - bw));
                             // Rozet arka planı: tahmin için çizgili kenarlık
                             if (isProjection) {
                                 ctx.strokeStyle = 'rgba(217,119,6,0.9)';
@@ -2318,7 +2418,12 @@
                             ctx.font = '600 9px Sora, sans-serif';
                             ctx.fillStyle = 'rgba(180,83,9,0.95)';
                             ctx.textBaseline = 'bottom';
-                            ctx.fillText(amt, x, y - 3);
+                            if (window.innerWidth < 600 && isProjection) {
+                                // Mobilde TAHMİN barı çok kısa — metni badge'in üstüne yaz
+                                ctx.fillText(amt, x, by - 4);
+                            } else {
+                                ctx.fillText(amt, x, y - 3);
+                            }
                             ctx.restore();
                         }
                     });
@@ -2510,7 +2615,7 @@
                             const bw = ctx.measureText(badgeText).width + 10;
                             const bh = 14;
                             const by = Math.max(y - 40, chart.chartArea.top + 2);
-                            const bx = x - bw / 2;
+                            const bx = Math.max(chart.chartArea.left, Math.min(x - bw / 2, chart.chartArea.right - bw));
                             ctx.fillStyle = 'rgba(217,119,6,0.9)';
                             ctx.beginPath();
                             ctx.roundRect(bx, by, bw, bh, 2);
@@ -2518,13 +2623,15 @@
                             ctx.fillStyle = '#ffffff';
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'middle';
-                            ctx.fillText(badgeText, x, by + bh / 2);
+                            ctx.fillText(badgeText, bx + bw / 2, by + bh / 2);
 
-                            // Fark değeri
-                            ctx.font = '600 9px Sora, sans-serif';
-                            ctx.fillStyle = 'rgba(180,83,9,0.95)';
-                            ctx.textBaseline = 'bottom';
-                            ctx.fillText(fark, x, y - 3);
+                            // Fark değeri (dar ekranda gizle)
+                            if (window.innerWidth >= 600) {
+                                ctx.font = '600 9px Sora, sans-serif';
+                                ctx.fillStyle = 'rgba(180,83,9,0.95)';
+                                ctx.textBaseline = 'bottom';
+                                ctx.fillText(fark, x, y - 3);
+                            }
 
                             // % etiketi (bar içi veya üstü)
                             ctx.font = '600 10px Sora, sans-serif';
@@ -3538,8 +3645,8 @@
                         ctx.fillText(counts[i], x, barMid);
                     } else {
                         ctx.fillStyle = colorMap[i];
-                        ctx.textBaseline = 'top';
-                        ctx.fillText(counts[i], x, base + 4);
+                        ctx.textBaseline = 'bottom';
+                        ctx.fillText(counts[i], x, y - 2);
                     }
                     ctx.restore();
                 });
