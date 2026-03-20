@@ -2333,28 +2333,11 @@
                 ctx.fillStyle = 'rgba(220,38,38,0.55)';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'top';
+                // Sağ kenara taşmayı önle
                 const tw = ctx.measureText(labelText).width;
                 const clampedX = Math.min(cx, chart.chartArea.right - tw / 2 - 4);
                 ctx.fillText(labelText, clampedX, ty);
                 ctx.restore();
-
-                // Mobilde son bar (2026) altına çapraz "TAHMİNİ / 2026" etiketi
-                if (isNarrow) {
-                    const lastBar = meta.data[meta.data.length - 1];
-                    if (!lastBar) return;
-                    const lx = lastBar.getProps(['x'], true).x;
-                    const axisY = chart.chartArea.bottom + 4;
-                    ctx.save();
-                    ctx.translate(lx, axisY);
-                    ctx.rotate(-Math.PI / 4);
-                    ctx.font = '600 8px Sora, sans-serif';
-                    ctx.fillStyle = 'rgba(0,0,0,0.55)';
-                    ctx.textAlign = 'left';
-                    ctx.textBaseline = 'top';
-                    ctx.fillText('TAHMİNİ', 2, 0);
-                    ctx.fillText('2026', 2, 10);
-                    ctx.restore();
-                }
             }
         };
 
@@ -2412,9 +2395,9 @@
                             font: { size: 9 },
                             callback: function(value, index) {
                                 const isNarrowChart = this.chart.width < 494;
+                                // Son etiket (TAHMİNİ/2026) → dar ekranda sadece '26
                                 const lastIdx = 9 - SKIP;
-                                // Mobilde son tick'i gizle — afterDraw çapraz çizer
-                                if (isNarrowChart && index === lastIdx) return null;
+                                if (isNarrowChart && index === lastIdx) return "'26";
                                 return this.getLabelForValue(value);
                             }
                         }
