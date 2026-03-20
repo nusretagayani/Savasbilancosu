@@ -2254,17 +2254,19 @@
                     const pctLabel  = (val > 0 ? '+' : '') + val.toFixed(isNarrow ? 1 : 2) + '%';
 
                     if (isNarrow) {
-                        // ── MOBİL: % ortada, $ tutar bar içinde altta ──
+                        // ── MOBİL: % bar içinde ortada, $ tutar bar altında dışında ──
                         const amtText = shortAmounts[realI];
-                        const barBottom = Math.max(y, base);
+                        const barBottom = Math.max(y, base); // negatif barda = en alt nokta
 
-                        // Font boyutunu bar genişliğine sığacak şekilde küçült (min 5px)
+                        // % için font boyutunu bar genişliğine sığacak şekilde küçült (min 5px)
                         let pf = Math.max(5, pctFont);
                         ctx.font = `600 ${pf}px Sora, sans-serif`;
                         while (ctx.measureText(pctLabel).width > barW - 1 && pf > 5) {
                             pf--;
                             ctx.font = `600 ${pf}px Sora, sans-serif`;
                         }
+
+                        // $ tutar için font boyutu
                         let af = Math.max(5, Math.round(7 * sc));
                         ctx.font = `500 ${af}px Sora, sans-serif`;
                         while (ctx.measureText(amtText).width > barW - 1 && af > 5) {
@@ -2272,30 +2274,25 @@
                             ctx.font = `500 ${af}px Sora, sans-serif`;
                         }
 
-                        const hasBoth = barHeight > pf + af + 8;
-                        const pctY = hasBoth ? barTop + barHeight * 0.33 : barMid;
-
-                        // % — bar içinde (yeterince uzun ise)
+                        // % — bar içinde ortada (bar yeterince uzunsa)
                         if (barHeight > pf * 1.8) {
                             ctx.save();
                             ctx.font = `600 ${pf}px Sora, sans-serif`;
                             ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'middle';
-                            ctx.fillText(pctLabel, x, pctY);
+                            ctx.fillText(pctLabel, x, barMid);
                             ctx.restore();
                         }
 
-                        // $ tutar — bar içinde alt kısım (her ikisi de sığıyorsa)
-                        if (hasBoth) {
-                            ctx.save();
-                            ctx.font = `500 ${af}px Sora, sans-serif`;
-                            ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
-                            ctx.textAlign = 'center';
-                            ctx.textBaseline = 'bottom';
-                            ctx.fillText(amtText, x, barBottom - 3);
-                            ctx.restore();
-                        }
+                        // $ tutar — bar altında, dışında (her zaman göster)
+                        ctx.save();
+                        ctx.font = `500 ${af}px Sora, sans-serif`;
+                        ctx.fillStyle = colorMap2[realI];
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+                        ctx.fillText(amtText, x, barBottom + 2);
+                        ctx.restore();
                     } else {
                         // ── PC: % ortada, tutar bar üstünde ──
                         const effFont = Math.max(6, pctFont);
