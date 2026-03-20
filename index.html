@@ -2255,18 +2255,30 @@
 
                     if (isNarrow) {
                         // ── MOBİL: % ortada, $ tutar bar içinde altta ──
-                        const effFont = Math.max(6, pctFont);
-                        const amtSize = Math.max(6, Math.round(7 * sc));
                         const amtText = shortAmounts[realI];
+                        const barBottom = Math.max(y, base);
 
-                        // % — bar ortasında, sığıyorsa
-                        ctx.font = `600 ${effFont}px Sora, sans-serif`;
-                        const pctW = ctx.measureText(pctLabel).width;
-                        const pctY = barHeight > (effFont + amtSize + 8)
-                            ? barTop + barHeight * 0.35   // iki etiket varsa üst %40'a
-                            : barMid;                      // tek etiket varsa tam ortaya
-                        if (barHeight > effFont * 1.4 && pctW < barW - 2) {
+                        // Font boyutunu bar genişliğine sığacak şekilde küçült (min 5px)
+                        let pf = Math.max(5, pctFont);
+                        ctx.font = `600 ${pf}px Sora, sans-serif`;
+                        while (ctx.measureText(pctLabel).width > barW - 1 && pf > 5) {
+                            pf--;
+                            ctx.font = `600 ${pf}px Sora, sans-serif`;
+                        }
+                        let af = Math.max(5, Math.round(7 * sc));
+                        ctx.font = `500 ${af}px Sora, sans-serif`;
+                        while (ctx.measureText(amtText).width > barW - 1 && af > 5) {
+                            af--;
+                            ctx.font = `500 ${af}px Sora, sans-serif`;
+                        }
+
+                        const hasBoth = barHeight > pf + af + 8;
+                        const pctY = hasBoth ? barTop + barHeight * 0.33 : barMid;
+
+                        // % — bar içinde (yeterince uzun ise)
+                        if (barHeight > pf * 1.8) {
                             ctx.save();
+                            ctx.font = `600 ${pf}px Sora, sans-serif`;
                             ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'middle';
@@ -2274,12 +2286,10 @@
                             ctx.restore();
                         }
 
-                        // $ tutar — bar içinde alt kısım
-                        ctx.font = `500 ${amtSize}px Sora, sans-serif`;
-                        const amtW = ctx.measureText(amtText).width;
-                        const barBottom = Math.max(y, base); // negatif barlarda en alt nokta
-                        if (barHeight > effFont * 1.4 + amtSize + 4 && amtW < barW - 2) {
+                        // $ tutar — bar içinde alt kısım (her ikisi de sığıyorsa)
+                        if (hasBoth) {
                             ctx.save();
+                            ctx.font = `500 ${af}px Sora, sans-serif`;
                             ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
                             ctx.textAlign = 'center';
                             ctx.textBaseline = 'bottom';
