@@ -2150,8 +2150,8 @@
         const labels  = ['2017','2018','2019','2020','2021','2022','2023','2024','2025',['TAHMİNİ','2026']];
         const data    = [-1.13, -3.56, -3.79, -10.70, -3.37, 0.32, -5.06, -8.26, -4.70, -5.10];
         const amounts = ['~$4 Milyar','$13.4 Milyar','$15.1 Milyar','~$44 Milyar','$16.5 Milyar','+$1.7 Milyar','~$26 Milyar','$44.8 Milyar','~$28 Milyar','~$27-28 Milyar'];
-        // Mobil için kısa tutar etiketleri ($ ve Milyar kelimesi olmadan)
-        const shortAmounts = ['4','13,4','15,1','44','16,5','1,7','26','44,8','28','27-28'];
+        // Mobil için kısa tutar etiketleri ($ ve Mlyr dahil)
+        const shortAmounts = ['$4 Mlyr','$13 Mlyr','$15 Mlyr','$44 Mlyr','$16 Mlyr','$1,7 Mlyr','$26 Mlyr','$45 Mlyr','$28 Mlyr','$27 Mlyr'];
 
         // Render için kullanılacak diziler (mobilde 2017 hariç)
         const labelsRender = SKIP ? [...labels.slice(1,9), '2026'] : labels;
@@ -2253,30 +2253,61 @@
                     const barHeight = Math.abs(base - y);
                     const pctLabel  = (val > 0 ? '+' : '') + val.toFixed(isNarrow ? 1 : 2) + '%';
 
-                    // % — bar içinde (yeterince yüksek VE geniş ise)
-                    const effFont = Math.max(6, pctFont);
-                    ctx.font = `600 ${effFont}px Sora, sans-serif`;
-                    const lblW = ctx.measureText(pctLabel).width;
-                    if (barHeight > effFont * 1.4 && lblW < barW - 2) {
-                        ctx.save();
+                    if (isNarrow) {
+                        // ── MOBİL: % ortada, $ tutar bar içinde altta ──
+                        const effFont = Math.max(6, pctFont);
+                        const amtSize = Math.max(6, Math.round(7 * sc));
+                        const amtText = shortAmounts[realI];
+
+                        // % — bar ortasında, sığıyorsa
                         ctx.font = `600 ${effFont}px Sora, sans-serif`;
-                        ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
+                        const pctW = ctx.measureText(pctLabel).width;
+                        const pctY = barHeight > (effFont + amtSize + 8)
+                            ? barTop + barHeight * 0.35   // iki etiket varsa üst %40'a
+                            : barMid;                      // tek etiket varsa tam ortaya
+                        if (barHeight > effFont * 1.4 && pctW < barW - 2) {
+                            ctx.save();
+                            ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(pctLabel, x, pctY);
+                            ctx.restore();
+                        }
+
+                        // $ tutar — bar içinde alt kısım
+                        ctx.font = `500 ${amtSize}px Sora, sans-serif`;
+                        const amtW = ctx.measureText(amtText).width;
+                        const barBottom = Math.max(y, base); // negatif barlarda en alt nokta
+                        if (barHeight > effFont * 1.4 + amtSize + 4 && amtW < barW - 2) {
+                            ctx.save();
+                            ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'bottom';
+                            ctx.fillText(amtText, x, barBottom - 3);
+                            ctx.restore();
+                        }
+                    } else {
+                        // ── PC: % ortada, tutar bar üstünde ──
+                        const effFont = Math.max(6, pctFont);
+                        ctx.font = `600 ${effFont}px Sora, sans-serif`;
+                        const lblW = ctx.measureText(pctLabel).width;
+                        if (barHeight > effFont * 1.4 && lblW < barW - 2) {
+                            ctx.save();
+                            ctx.fillStyle = i === hatchBarIdx ? '#b91c1c' : '#ffffff';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(pctLabel, x, barMid);
+                            ctx.restore();
+                        }
+
+                        ctx.save();
+                        ctx.font = `500 ${amtFont}px Sora, sans-serif`;
+                        ctx.fillStyle = colorMap2[realI];
                         ctx.textAlign = 'center';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(pctLabel, x, barMid);
+                        ctx.textBaseline = 'bottom';
+                        ctx.fillText(amounts[realI], x, barTop - 3);
                         ctx.restore();
                     }
-
-                    // Tutar etiketi: PC'de tam metin, mobilde kısa sayı
-                    const amtText = isNarrow ? shortAmounts[realI] : amounts[realI];
-                    const amtSize = isNarrow ? Math.max(6, Math.round(7 * sc)) : amtFont;
-                    ctx.save();
-                    ctx.font = `500 ${amtSize}px Sora, sans-serif`;
-                    ctx.fillStyle = colorMap2[realI];
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'bottom';
-                    ctx.fillText(amtText, x, barTop - 3);
-                    ctx.restore();
                 });
             },
             afterDraw(chart) {
