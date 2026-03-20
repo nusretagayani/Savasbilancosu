@@ -2397,7 +2397,7 @@
                                 const isNarrowChart = this.chart.width < 494;
                                 // Son etiket (TAHMİNİ/2026) → dar ekranda sadece '26
                                 const lastIdx = 9 - SKIP;
-                                if (isNarrowChart && index === lastIdx) return "'26";
+                                if (isNarrowChart && index === lastIdx) return '2026';
                                 return this.getLabelForValue(value);
                             }
                         }
@@ -3662,11 +3662,6 @@
 
         const tourismPlugin = {
             id: 'tourismLabels',
-            beforeDraw(chart) {
-                const sc = Math.min(1, chart.width / 580);
-                const ann = chart.options.plugins.annotation.annotations.warLabel;
-                ann.display = sc >= 0.85; // mobilde annotation etiketini gizle
-            },
             afterDatasetsDraw(chart) {
                 const ctx = chart.ctx;
                 const meta = chart.getDatasetMeta(0);
@@ -3683,51 +3678,83 @@
                     const barH = Math.abs(base - y);
                     const barW = Math.abs(bw || 20);
                     const barMid = (y + base) / 2;
-                    // Turist sayısı — bar içi veya üstü
                     ctx.save();
-                    ctx.font = `600 ${fontSize}px Sora, sans-serif`;
                     ctx.textAlign = 'center';
-                    const lblW = ctx.measureText(counts[i]).width;
-                    if (barH > fontSize * 2 && lblW < barW - 2) {
-                        ctx.fillStyle = '#ffffff';
-                        ctx.textBaseline = 'middle';
-                        ctx.fillText(counts[i], x, barMid);
-                    } else if (lblW < barW + 4) {
-                        ctx.fillStyle = colorMap[i];
-                        ctx.textBaseline = 'bottom';
-                        ctx.fillText(counts[i], x, y - 2);
+
+                    if (sc < 0.85) {
+                        // Mobil: font küçülterek bar içine sığdır
+                        let fs = fontSize;
+                        ctx.font = `600 ${fs}px Sora, sans-serif`;
+                        let lw = ctx.measureText(counts[i]).width;
+                        while ((lw > barW - 1 || barH < fs * 1.8) && fs > 5) {
+                            fs--;
+                            ctx.font = `600 ${fs}px Sora, sans-serif`;
+                            lw = ctx.measureText(counts[i]).width;
+                        }
+                        if (barH > fs * 1.5 && lw < barW) {
+                            ctx.fillStyle = '#ffffff';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(counts[i], x, barMid);
+                        } else if (lw < barW + 4) {
+                            ctx.fillStyle = colorMap[i];
+                            ctx.textBaseline = 'bottom';
+                            ctx.fillText(counts[i], x, y - 2);
+                        }
+                    } else {
+                        // PC: mevcut mantık
+                        ctx.font = `600 ${fontSize}px Sora, sans-serif`;
+                        const lblW = ctx.measureText(counts[i]).width;
+                        if (barH > fontSize * 2 && lblW < barW - 2) {
+                            ctx.fillStyle = '#ffffff';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText(counts[i], x, barMid);
+                        } else if (lblW < barW + 4) {
+                            ctx.fillStyle = colorMap[i];
+                            ctx.textBaseline = 'bottom';
+                            ctx.fillText(counts[i], x, y - 2);
+                        }
                     }
-                    // lblW >= barW + 4 ise hiç yazma (taşar)
                     ctx.restore();
                 });
             },
             afterDraw(chart) {
                 const sc = Math.min(1, chart.width / 580);
-                if (sc >= 0.85) return; // sadece mobil
+                const isNarrow = sc < 0.85;
                 const ctx = chart.ctx;
                 const { chartArea } = chart;
                 const meta = chart.getDatasetMeta(0);
-                // Savaş dönemi barları: indeks 8 (2023) → 10 (2025)
                 const firstBar = meta.data[8];
                 const lastBar  = meta.data[10];
                 if (!firstBar || !lastBar) return;
                 const x1 = firstBar.getProps(['x'], true).x;
                 const x2 = lastBar.getProps(['x'], true).x;
                 const cx = (x1 + x2) / 2;
-                const lbl = 'SAVAŞ DÖNEMİ';
-                const fs  = Math.max(7, Math.round(9 * sc));
-                ctx.save();
-                ctx.font = `700 ${fs}px Sora, sans-serif`;
-                const tw = ctx.measureText(lbl).width + 4;
-                // Sağ kenara sığacak şekilde clamp
-                const drawX = Math.min(cx, chartArea.right - tw / 2 - 2);
-                const drawY = chartArea.top + 4;
-                // Clamped konumda çiz
-                ctx.fillStyle = 'rgba(220,38,38,0.55)';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'top';
-                ctx.fillText(lbl, drawX, drawY);
-                ctx.restore();
+
+                if (isNarrow) {
+                    // Mobil: sağa sığacak şekilde clamp
+                    const lbl = 'SAVAŞ DÖNEMİ';
+                    const fs  = Math.max(7, Math.round(9 * sc));
+                    ctx.save();
+                    ctx.font = `700 ${fs}px Sora, sans-serif`;
+                    const tw = ctx.measureText(lbl).width + 4;
+                    const drawX = Math.min(cx, chartArea.right - tw / 2 - 2);
+                    ctx.fillStyle = 'rgba(220,38,38,0.55)';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText(lbl, drawX, chartArea.top + 4);
+                    ctx.restore();
+                } else {
+                    // PC: annotation yerine afterDraw ile çiz (xValue:9, yValue:4.0 eşdeğeri)
+                    const yScale = chart.scales.y;
+                    const drawY = yScale.getPixelForValue(4.0);
+                    ctx.save();
+                    ctx.font = '700 9px Sora, sans-serif';
+                    ctx.fillStyle = 'rgba(220,38,38,0.55)';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('▲ SAVAŞ DÖNEMİ', cx, drawY);
+                    ctx.restore();
+                }
             }
         };
 
@@ -3768,16 +3795,7 @@
                                 borderWidth: 1,
                                 borderDash: [4,3],
                             },
-                            warLabel: {
-                                type: 'label',
-                                xValue: 9,
-                                yValue: 4.0,
-                                content: ['▲ SAVAŞ DÖNEMİ'],
-                                font: { size: 9, family: 'Sora, sans-serif', weight: '700' },
-                                color: 'rgba(220,38,38,0.55)',
-                                backgroundColor: 'rgba(0,0,0,0)',
-                                padding: 0,
-                            }
+                            // warLabel annotation kaldırıldı — afterDraw ile çiziliyor
                         }
                     }
                 },
