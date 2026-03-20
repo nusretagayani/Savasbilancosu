@@ -3783,6 +3783,37 @@
                     // lblW >= barW + 4 ise hiç yazma (taşar)
                     ctx.restore();
                 });
+            },
+            afterDraw(chart) {
+                const sc = Math.min(1, chart.width / 580);
+                if (sc >= 0.85) return; // sadece mobil
+                const ctx = chart.ctx;
+                const { chartArea } = chart;
+                const meta = chart.getDatasetMeta(0);
+                // Savaş dönemi barları: indeks 8 (2023) → 10 (2025)
+                const firstBar = meta.data[8];
+                const lastBar  = meta.data[10];
+                if (!firstBar || !lastBar) return;
+                const x1 = firstBar.getProps(['x'], true).x;
+                const x2 = lastBar.getProps(['x'], true).x;
+                const cx = (x1 + x2) / 2;
+                const lbl = 'SAVAŞ DÖNEMİ';
+                const fs  = Math.max(7, Math.round(9 * sc));
+                ctx.save();
+                ctx.font = `700 ${fs}px Sora, sans-serif`;
+                const tw = ctx.measureText(lbl).width + 4;
+                // Sağ kenara sığacak şekilde clamp
+                const drawX = Math.min(cx, chartArea.right - tw / 2 - 2);
+                const drawY = chartArea.top + 4;
+                // Annotation etiketini beyaz dikdörtgenle kapat
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, fs + 8);
+                // Yeniden çiz — clamped
+                ctx.fillStyle = 'rgba(220,38,38,0.55)';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText(lbl, drawX, drawY);
+                ctx.restore();
             }
         };
 
