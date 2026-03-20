@@ -2540,12 +2540,20 @@
                 const { x } = meta0.data[2].getProps(['x'], true);
                 const bottom = chart.chartArea.bottom;
                 ctx.save();
-                ctx.font = '500 8px Sora, sans-serif';
                 ctx.fillStyle = 'rgba(180,83,9,0.8)';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'top';
-                // Mobilde x ekseninin hemen altına yaz (daha az offset)
-                ctx.fillText('* Tahmini — savaş uzarsa artacak', x, bottom + (isNarrow ? 18 : 38));
+                if (isNarrow) {
+                    // Mobil: 2 satır, x ekseni etiketlerinin altında
+                    ctx.font = '500 7px Sora, sans-serif';
+                    const y1 = bottom + (chart.height - bottom) * 0.55;
+                    const y2 = y1 + 10;
+                    ctx.fillText('* Tahmini —', x, y1);
+                    ctx.fillText('savaş uzarsa artacak', x, y2);
+                } else {
+                    ctx.font = '500 8px Sora, sans-serif';
+                    ctx.fillText('* Tahmini — savaş uzarsa artacak', x, bottom + 38);
+                }
                 ctx.restore();
             }
         };
