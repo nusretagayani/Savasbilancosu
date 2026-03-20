@@ -3750,6 +3750,11 @@
 
         const tourismPlugin = {
             id: 'tourismLabels',
+            beforeDraw(chart) {
+                const sc = Math.min(1, chart.width / 580);
+                const ann = chart.options.plugins.annotation.annotations.warLabel;
+                ann.display = sc >= 0.85; // mobilde annotation etiketini gizle
+            },
             afterDatasetsDraw(chart) {
                 const ctx = chart.ctx;
                 const meta = chart.getDatasetMeta(0);
@@ -3805,10 +3810,7 @@
                 // Sağ kenara sığacak şekilde clamp
                 const drawX = Math.min(cx, chartArea.right - tw / 2 - 2);
                 const drawY = chartArea.top + 4;
-                // Annotation etiketini beyaz dikdörtgenle kapat
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, fs + 8);
-                // Yeniden çiz — clamped
+                // Clamped konumda çiz
                 ctx.fillStyle = 'rgba(220,38,38,0.55)';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'top';
