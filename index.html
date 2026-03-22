@@ -2596,8 +2596,9 @@
                             ctx.font = `700 ${badgeFont}px Sora, sans-serif`;
                             const bw = ctx.measureText(badgeText).width + badgePad;
                             const bh = badgeH;
+                            const projOffset = isNarrow ? Math.round(4 * sc) : 20;
                             const by = isProjection
-                                ? Math.max(y - bh - Math.round(4 * sc), chart.chartArea.top + 2)
+                                ? Math.max(y - bh - projOffset, chart.chartArea.top + 2)
                                 : Math.max(y - badgeOff, chart.chartArea.top + 2);
                             const bx = Math.max(chart.chartArea.left, Math.min(x - bw / 2, chart.chartArea.right - bw));
                             if (isProjection) {
@@ -2621,7 +2622,8 @@
                                 ctx.font = `600 ${Math.round(9 * sc)}px Sora, sans-serif`;
                                 ctx.fillStyle = 'rgba(180,83,9,0.95)';
                                 ctx.textBaseline = 'bottom';
-                                ctx.fillText(amt, x, y - 3);
+                                const amtY = isProjection ? y - 4 : y - 3;
+                                ctx.fillText(amt, x, amtY);
                             }
                             ctx.restore();
                         }
