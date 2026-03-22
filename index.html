@@ -56,6 +56,19 @@
         [data-theme="dark"] .topbar { background: #010409; }
         [data-theme="dark"] .hero { background: linear-gradient(135deg, #010409 0%, #0d1117 60%, #161b22 100%); }
         [data-theme="dark"] img { opacity: 0.92; }
+        [data-theme="dark"] .breakdown-header.infra       { background: rgba(249,115,22,0.13); border-bottom-color: rgba(249,115,22,0.25); }
+        [data-theme="dark"] .breakdown-header.production  { background: rgba(34,197,94,0.10); border-bottom-color: rgba(34,197,94,0.22); }
+        [data-theme="dark"] .breakdown-header.military    { background: rgba(59,130,246,0.12) !important; border-bottom-color: rgba(59,130,246,0.25) !important; }
+        [data-theme="dark"] .breakdown-header.defense     { background: rgba(245,158,11,0.12); border-bottom-color: rgba(245,158,11,0.25); }
+        [data-theme="dark"] .breakdown-header.financial   { background: rgba(168,85,247,0.12); border-bottom-color: rgba(168,85,247,0.25); }
+        [data-theme="dark"] .breakdown-header.humanitarian{ background: rgba(244,63,94,0.12); border-bottom-color: rgba(244,63,94,0.25); }
+        [data-theme="dark"] .breakdown-header             { background: rgba(100,116,139,0.15); border-bottom-color: rgba(100,116,139,0.25); }
+        [data-theme="dark"] .breakdown-amount             { color: #e6edf3; }
+        [data-theme="dark"] .breakdown-cat-title[style*="color:#c2410c"] { color: #fb923c !important; }
+        [data-theme="dark"] .breakdown-cat-title[style*="color:#166534"] { color: #4ade80 !important; }
+        [data-theme="dark"] .breakdown-cat-title[style*="color:#334155"] { color: #94a3b8 !important; }
+        [data-theme="dark"] .breakdown-cat-title[style*="color:#9f1239"] { color: #fb7185 !important; }
+        [data-theme="dark"] .breakdown-cat-sub            { color: #8b949e !important; }
 
         .theme-toggle {
             background: none;
@@ -1550,7 +1563,7 @@
 
                 <!-- Askeri Harcama -->
                 <div class="breakdown-card fade-in">
-                    <div class="breakdown-header" style="background: #f1f5f9; border-bottom: 1px solid #cbd5e1;">
+                    <div class="breakdown-header military" style="background: #f1f5f9; border-bottom: 1px solid #cbd5e1;">
                         <div class="breakdown-top">
                             <div class="breakdown-cat-title" style="color:#334155">Askeri Harcama</div>
                             <div class="breakdown-amount">$11,4 Milyar</div>
