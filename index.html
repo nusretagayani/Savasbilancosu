@@ -901,6 +901,53 @@
             .hero-title { font-size: 28px; }
         }
 
+        /* ─── MOBILE BOTTOM NAV ─── */
+        .mobile-bottom-nav {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            body { padding-bottom: 64px; }
+            .mobile-bottom-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: var(--surface);
+                border-top: 1px solid var(--border);
+                z-index: 200;
+                box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+            }
+            .mobile-bottom-nav a {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+                padding: 8px 4px 10px;
+                text-decoration: none;
+                color: var(--text-2);
+                font-size: 9.5px;
+                font-weight: 600;
+                letter-spacing: 0.02em;
+                transition: color 0.15s;
+            }
+            .mobile-bottom-nav a svg {
+                width: 20px;
+                height: 20px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 1.8;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .mobile-bottom-nav a.active,
+            .mobile-bottom-nav a:hover {
+                color: var(--blue);
+            }
+        }
+
         /* ─── MOBILE RESPONSIVE ─── */
         @media (max-width: 768px) {
             /* Chart tabs: allow wrapping */
@@ -1145,6 +1192,30 @@
             <div class="ticker-item"><span>GÜN</span><span style="color:#fff">21</span></div>
         </div>
     </div>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <a href="#dashboard" class="active">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Panel
+        </a>
+        <a href="#breakdown">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+            Maliyetler
+        </a>
+        <a href="#analysis">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Analiz
+        </a>
+        <a href="#articles">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Makaleler
+        </a>
+        <a href="#sources">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Kaynaklar
+        </a>
+    </nav>
 
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -3062,12 +3133,17 @@
     // ─── ACTIVE NAV HIGHLIGHT ───
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
+    const mobileNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
 
     const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const id = '#' + entry.target.id;
                 navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+                    link.classList.toggle('active', link.getAttribute('href') === id);
+                });
+                mobileNavLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === id);
                 });
             }
         });
