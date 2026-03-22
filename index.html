@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İsrail Savaş Ekonomisi İzleme — Finansal Etki Analizi</title>
+    <title>Savaş Bilançosu — İran Çatışmasının Ekonomik Bedeli</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -189,11 +189,15 @@
         .nav-logo svg { width: 16px; height: 16px; fill: #fff; }
         .nav-title {
             font-family: var(--font-display);
-            font-size: 17px;
+            font-size: 20px;
+            font-weight: 700;
             color: var(--text);
             letter-spacing: -0.02em;
+            line-height: 1.15;
+            display: flex;
+            flex-direction: column;
         }
-        .nav-title span { color: var(--blue); }
+        .nav-title span { color: var(--blue); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
         .nav-links {
             display: flex;
             gap: 2px;
@@ -1275,7 +1279,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-brand">
-            <div class="nav-title">Savaş<span>Bilançosu</span></div>
+            <div class="nav-title">Savaş Bilançosu<span>İran Çatışmasının Ekonomik Bedeli</span></div>
         </div>
         <div class="nav-links">
             <a href="#dashboard" class="active">Gösterge Paneli</a>
@@ -1973,7 +1977,7 @@
                     <div class="article-img" style="background: linear-gradient(90deg, #4f46e5, #818cf8);"></div>
                     <div class="article-body">
                         <div class="article-category">Jeopolitik & Savaş Günlüğü</div>
-                        <h3 class="article-title" style="font-size: 22px;">Savaşın Akışı: Başlangıçtan Bugüne (28 Şubat - 12 Mart)</h3>
+                        <h3 class="article-title">Savaşın Akışı: Başlangıçtan Bugüne (28 Şubat - 12 Mart)</h3>
                         <p class="article-excerpt">ABD ve İsrail, Cumartesi günü İran’a karşı son on yılların en iddialı saldırılarını gerçekleştirdi; bu operasyonda İran’ın Dini Lideri Ayetullah Ali Hamaney hayatını kaybetti. İran'ın iktidar yapısına yönelik saldırılar ve olası rejim değişikliği senaryoları detaylıca değerlendiriliyor...</p>
                         <div class="article-footer">
                             <div class="article-author"><strong>Reuters (Çeviri)</strong></div>
@@ -1987,7 +1991,7 @@
                     <div class="article-img" style="background: linear-gradient(90deg, #ea580c, #fcd34d);"></div>
                     <div class="article-body">
                         <div class="article-category">Enerji Piyasaları</div>
-                        <h3 class="article-title" style="font-size: 22px;">Hürmüz Boğazı Krizi ve Petrol Piyasası Hakkında Bilmeniz Gereken Her Şey</h3>
+                        <h3 class="article-title">Hürmüz Boğazı Krizi ve Petrol Piyasası Hakkında Bilmeniz Gereken Her Şey</h3>
                         <p class="article-excerpt">Mart 2026 itibarıyla dünya enerji piyasaları, son yılların en ciddi krizlerinden birini yaşıyor. ABD ve İsrail ile İran arasındaki gerilim, dünya petrol ticaretinin yaklaşık beşte birinin geçtiği Hürmüz Boğazı’nın fiilen kapanmasına yol açtı...</p>
                         <div class="article-footer">
                             <div class="article-author"><strong>Ahmet Baran Çekim</strong></div>
@@ -1996,12 +2000,26 @@
                     </div>
                 </div>
 
+                <!-- Savaşın Dünyaya Ekonomik Etkisi -->
+                <div class="article-card fade-in" onclick="openArticleModal(4)">
+                    <div class="article-img" style="background: linear-gradient(135deg, #1e3a5f, #2563eb);"></div>
+                    <div class="article-body">
+                        <div class="article-category">Küresel Ekonomi</div>
+                        <h3 class="article-title">Savaşın Küresel Ekonomik Faturası</h3>
+                        <p class="article-excerpt">Enerjiden gıdaya, borsalardan bölgesel krizlere — Ortadoğu'daki savaş küresel ekonomiyi nasıl sarstı? ABD'nin ambargo kararları, gübre kıtlığı ve domino etkileri.</p>
+                        <div class="article-footer">
+                            <div class="article-author"><strong>Savaş Bilançosu</strong></div>
+                            <div class="article-date">22 Mar 2026</div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- YENİ UZUN FORMATLI MAKALE KARTI 3 (Kızıldeniz) -->
-                <div class="article-card fade-in" onclick="openArticleModal(4)" style="grid-column: 1 / -1;">
+                <div class="article-card fade-in" onclick="openArticleModal(5)">
                     <div class="article-img" style="background: linear-gradient(90deg, #be123c, #f43f5e);"></div>
                     <div class="article-body">
                         <div class="article-category">Küresel Ticaret & Lojistik</div>
-                        <h3 class="article-title" style="font-size: 22px;">İran'nın Diğer Kartı: Kızıldeniz</h3>
+                        <h3 class="article-title">İran'nın Diğer Kartı: Kızıldeniz</h3>
                         <p class="article-excerpt" style="max-width: 800px;">İran’ın desteklediği Husiler, Bab el-Mendeb Boğazı’nı kapatma kapasitesine sahip. Kızıldeniz’in kapanması durumunda dünya ekonomisi ve özellikle İsrail ciddi etkilerle karşılaşabilir. Küresel tedarik zinciri enflasyon baskısıyla karşı karşıya...</p>
                         <div class="article-footer">
                             <div class="article-author"><strong>Savaş Bilançosu</strong></div>
@@ -3784,6 +3802,75 @@
                 <p>Hürmüz Boğazı krizinde ABD’nin sınırlı ek üretimi veya Rusya’nın denizlerdeki geçici stokları, 10 milyon varillik büyük bir petrol açığını tek başına kapatamaz. Bunlar sadece sistemi biraz rahatlatan, geçici çözümler gibi düşünülebilir. Piyasadaki vadeli işlem kuralları fiyatlardaki ani panik yükselişini bir miktar azaltabilir ama temel sorun olan petrol arzındaki eksikliği çözemez.</p>
                 <p>Piyasadan çekilen milyonlarca varil, spekülatif bir oyun veya kolayca yerine konabilecek bir eksiklik değildir. Bu, Irak ve Kuveyt’in üretimi zorunlu olarak kısmasıyla fiilen kaybolmuş gerçek petrol miktarıdır. OPEC’in yedek kapasitesinin kriz merkezinde sıkışması ve stratejik rezervlerin sınırlı boşaltım hızı, küresel piyasayı savunmasız bırakmıştır.</p>
                 <p><strong>Buna göre, petrol fiyatlarının 100–150 dolar seviyelerine çıkması abartı değil; bu, arz-talep dengesizliği, risk primleri ve talep azalmasının doğal sonucudur. Krizin nasıl ilerleyeceği, tamamen askeri ve diplomatik çözümlerin ne kadar hızlı uygulanacağına bağlıdır. Eğer Hürmüz Boğazı kısa sürede açılmazsa, depolarda yer kalmayacak, üretim duracak ve bu durum küresel ekonomiyi uzun süreli yüksek enflasyon ve durgunluk ile karşı karşıya bırakacak ciddi bir şok yaratacaktır.</strong></p>
+            `
+        },
+        // SAVAŞIN KÜRESEL EKONOMİK ETKİSİ
+        {
+            category: "Küresel Ekonomi",
+            title: "Savaşın Küresel Ekonomik Faturası",
+            author: "Savaş Bilançosu",
+            date: "22 Mar 2026",
+            body: `
+                <h4>Belirsizlik ve Volatilite (Oynaklık)</h4>
+                <p>Güvensiz ve öngörülemez ortam oluşması ve fiyatların volatilitesinin (oynaklığının) artması. Savaş başlar başlamaz savaşın ne kadar derin olacağı ile ilgili ve tarihiyle ilgili bir çok fikir vardı; bazıları erken biteceğini, bazıları ise geç biteceğini söylüyordu. Savaşın şiddeti ile ilgili de birçok spekülasyon vardı. Bunlara Trump'ın açıklamaları eklenince, piyasa ve ülke ekonomileri nasıl tepki vereceğini şaşırdı ve böylelikle volatilite arttı. Ne olacağını kimse bilmediği için piyasa belirsizliği çok arttı; bu da ekonominin yavaşlaması demek çünkü herkes beklemeye başladı.</p>
+
+                <h4>Tedarik Zinciri Krizi ve Enerji Arzı</h4>
+                <p>Savaş başladıktan sonra Hürmüz'ün kapanmasıyla tedarik zinciri krizi ortaya çıktı. Bu, ürünlerin alıcıdan satıcıya ulaşamaması anlamına geliyor; bu yüzden petrol ve LNG (gaz) arz sıkıntıları ortaya çıkıyor. Hürmüz ile ilgili daha detaylı bilgi yazımıza bakabilirsiniz.</p>
+
+                <p>Petrol ve gaz fiyatları yükselince dünya ekonomisi ciddi şekilde etkilendi. Örnek olarak Türkiye'de altın fiyatlarının düşmesiyle birlikte Merkez Bankası rezervleri 20 milyar doların üstünde eridi, enflasyon beklentisi yükseldi ve birçok başka sorun ortaya çıktı. Dünyada da benzer etkiler gözlendi; hükümetler ve halklar zor duruma düştü. İran rejimi devrilmedi ve diğer ülkeler bu kadar maliyete, saçma sebeplerden ve olmayacak hedeflerden dolayı neden katlanıyoruz sorusunu sormaya başladı. Bu nedenle ABD ve İsrail üzerinde büyük baskı oluştu. Petrol fiyatlarını hafife almayın; ABD petrol fiyatları düşsün diye inanılmaz girişimlerde bulundu.</p>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 1 ]</div>
+
+                <h4>ABD'nin Petrol Politikası</h4>
+                <p>ABD, en büyük rakibi olarak gördüğü Rusya'nın petrol ambargosunu belirli süreliğine kaldırdı; çünkü petrol fiyatları ABD üzerinde çok büyük bir baskı unsuru. Savaştan önce bunu kimse söylese inanmazdı, ama ABD petrol fiyatları düşsün diye savaştığı İran'a karşı petrol ambargosunu kaldırdı.</p>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 2 ]</div>
+
+                <p>ABD'nin zarar görmediği, iddialar olsa da sadece petrol fiyatlarının ABD üzerinde büyük bir baskı mekanizması olduğu görülüyor.</p>
+
+                <h4>ABD'de Enerji Fiyatları ve Halk Üzerindeki Etkisi</h4>
+                <p>ABD'de petrol fiyatları 54 dolardan 100 dolara kadar çıktı, benzin fiyatları ise 2,81 dolardan 3,91 dolara (%40) yükseldi. Benzin fiyatları direkt halka yansıyan fiyatlar.</p>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ ABD Petrol Fiyatları: Fotoğraf 3 ]</div>
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ ABD Benzin Fiyatları: Fotoğraf 4 ]</div>
+
+                <h4>Küresel Piyasalar ve Borsalar</h4>
+                <p>Enerji fiyatlarının artışı diğer tüm fiyatları da etkiliyor; dünya piyasalarından milyarlarca dolar silinmiş oldu. Borsalar üzerinden savaş başladığından beri dünya borsalarının durumu:</p>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 5 ]</div>
+
+                <h4>Gıda ve Gübre Krizi</h4>
+                <p>Hürmüz krizi küresel gübre piyasasını sarstı. Etkiler gıda fiyatlarına ve siyasi istikrara kadar uzanacak.</p>
+
+                <ul style="margin-bottom:24px;padding-left:20px;color:var(--text-2);font-size:16px;line-height:1.8;">
+                    <li>Körfez bölgesi küresel üre ihracatının %45'ini, amonyak ihracatının %30'unu, fosfat gübrelerinin %25'ini sağlıyor. Normal koşullarda küresel azot gübresi ihracatının %25-30'u buradan geçiyor.</li>
+                    <li>Savaşın başından bu yana urea referans fiyatları %30-40 arttı; bazı spot işlemlerde ton başına 400-450 dolardan 600 dolara yükseldi.</li>
+                    <li>Sülfür kritik; dünya deniz yoluyla sülfür ticaretinin %44'ü Körfez'den geçiyor. Fosfat gübre üretimi için temel girdi. Sülfür gelmezse Fas ve Çin'deki büyük tesisler hammadde bulsa bile üretim yapamıyor.</li>
+                    <li>Çin'in ihracat yasağı durumu kötüleştirdi; Ağustos 2026'ya kadar urea ve fosfat ihracatını durdurdu.</li>
+                    <li>Güney Yarımküre'de etkiler kuzeyden daha derin; Mart-Nisan dönemi ekim ve hasat kritik. 20 günlük lojistik gecikme bile bu pencereyi kaçırabilir.</li>
+                    <li>Kırılgan ülkeler: Hindistan, Pakistan, Bangladeş, Kenya, Etiyopya, Brezilya.</li>
+                    <li>Ateşkes olsa bile sorun bitmeyecek; sigorta primleri, gemi birikimi ve güvenlik endişeleri nedeniyle tedarik aksaması haftalarca sürebilir.</li>
+                </ul>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 6 ]</div>
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 7 ]</div>
+
+                <h4>Bölgesel Sosyal ve Ekonomik Etkiler</h4>
+                <p><strong>Kuzey Afrika:</strong> Mısır, İran savaşı nedeniyle küresel yakıt maliyetlerindeki artışla mücadele ediyor. Dükkan ve kafelerin erken kapanması gibi elektrik kısıtlamaları uygulanacak.</p>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 8 ]</div>
+
+                <p><strong>Körfez ekonomileri:</strong> 1990'lardaki Körfez Savaşı'ndan bu yana en kötü durgunluk riskiyle karşı karşıya. Goldman Sachs, Hürmüz Boğazı'nın 2 ay kapalı kalması durumunda Katar ve Kuveyt ekonomilerinin %14 daralabileceğini söylüyor. Suudi Arabistan %3, BAE %5 küçülmesi bekleniyor.</p>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 9 ]</div>
+
+                <h4>Ulaşım ve Lojistik</h4>
+                <ul style="margin-bottom:24px;padding-left:20px;color:var(--text-2);font-size:16px;line-height:1.8;">
+                    <li>Ortadoğu'da birçok uçuş iptal edildi; savaşın kısa sürede bitmeyeceği beklentisi genel olarak yayıldı.</li>
+                    <li>British Airways, Haziran ayına kadar Dubai, Umman, Bahreyn ve Tel Aviv uçuşlarını iptal etti.</li>
+                </ul>
+
+                <div style="margin:16px 0;background:var(--surface-2);border-radius:8px;padding:14px;text-align:center;color:var(--text-3);font-size:12px;border:1px dashed var(--border);">[ Fotoğraf 10 ]</div>
             `
         },
         // YENİ EKLENEN KIZILDENİZ MAKALELERİ
