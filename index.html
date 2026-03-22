@@ -1041,6 +1041,7 @@
             position: fixed;
             top: 24px;
             right: 32px;
+            z-index: 1100;
             background: var(--surface-2);
             border: 1px solid var(--border);
             width: 44px;
@@ -1052,7 +1053,6 @@
             justify-content: center;
             color: var(--text-2);
             transition: all 0.2s;
-            z-index: 1000;
         }
         .modal-close:hover {
             background: var(--border-2);
@@ -1814,7 +1814,7 @@
                     <div class="article-img econ"></div>
                     <div class="article-body">
                         <div class="article-category">Makroekonomi</div>
-                        <h3 class="article-title">İsrail Ekonomisi Savaşı Nasıl Absorbe Ediyor: Parçalanmış Bir Bölgede Yapısal Dayanıklılık</h3>
+                        <h3 class="article-title">İsrail Ekonomisinde Savaşın İki Yüzü: Yapısal Direnç ve Görünmez Hasarlar</h3>
                         <p class="article-excerpt">Tekrarlayan çatışmalara rağmen İsrail'in yüksek teknoloji sektörü, güçlü döviz rezervleri ve derin ABD güvenlik ortaklığı, ona karşılaştırılabilir ekonomileri harap edecek ölçekte savaş maliyetlerini absorbe etme konusunda eşsiz bir kapasite kazandırmaktadır...</p>
                         <div class="article-footer">
                             <div class="article-author"><strong>Savaş Bilançosu</strong></div>
@@ -1834,33 +1834,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="article-card fade-in" onclick="openArticleModal(2)">
-                    <div class="article-img market"></div>
-                    <div class="article-body">
-                        <div class="article-category">Finansal Piyasalar</div>
-                        <h3 class="article-title">Savaş Döneminde TASE: Hisse Senedi Piyasaları, Devlet Borcu ve Şekel</h3>
-                        <p class="article-excerpt">Tel Aviv Borsası'ndaki dalgalanmalar; farklı sektörlerin birbirinden ayrışan davranışlarını (yükselen savunma hisseleri vs. çöken gayrimenkul) ve Merkez Bankası'nın döviz müdahalesini nasıl şekillendirdiğini gösteriyor...</p>
-                        <div class="article-footer">
-                            <div class="article-author"><strong>Savaş Bilançosu</strong></div>
-                            <div class="article-date">10 Mar 2026</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="article-card fade-in" onclick="openArticleModal(3)">
-                    <div class="article-img gdp"></div>
-                    <div class="article-body">
-                        <div class="article-category">Yeniden Yapılanma Ekonomisi</div>
-                        <h3 class="article-title">Savaş Sonrası Toparlanma Kılavuzu: 1973 Yom Kippur'dan Günümüze Dersler</h3>
-                        <p class="article-excerpt">Senaryolar arasındaki toparlanma yörüngelerini karşılaştırmakta; uluslararası yardımın, diaspora yatırımlarının ve kurumsal güvenilirliğin çatışma sonrası büyümeyi nasıl hızlandırdığını modellemekteyiz...</p>
-                        <div class="article-footer">
-                            <div class="article-author"><strong>Savaş Bilançosu</strong></div>
-                            <div class="article-date">8 Mar 2026</div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- YENİ UZUN FORMATLI MAKALE KARTI 1 -->
-                <div class="article-card fade-in" onclick="openArticleModal(4)">
+                <div class="article-card fade-in" onclick="openArticleModal(2)">
                     <div class="article-img" style="background: linear-gradient(90deg, #4f46e5, #818cf8);"></div>
                     <div class="article-body">
                         <div class="article-category">Jeopolitik & Savaş Günlüğü</div>
@@ -1874,7 +1850,7 @@
                 </div>
 
                 <!-- YENİ UZUN FORMATLI MAKALE KARTI 2 (Hürmüz Boğazı) -->
-                <div class="article-card fade-in" onclick="openArticleModal(5)">
+                <div class="article-card fade-in" onclick="openArticleModal(3)">
                     <div class="article-img" style="background: linear-gradient(90deg, #ea580c, #fcd34d);"></div>
                     <div class="article-body">
                         <div class="article-category">Enerji Piyasaları</div>
@@ -1888,7 +1864,7 @@
                 </div>
 
                 <!-- YENİ UZUN FORMATLI MAKALE KARTI 3 (Kızıldeniz) -->
-                <div class="article-card fade-in" onclick="openArticleModal(6)" style="grid-column: 1 / -1;">
+                <div class="article-card fade-in" onclick="openArticleModal(4)" style="grid-column: 1 / -1;">
                     <div class="article-img" style="background: linear-gradient(90deg, #be123c, #f43f5e);"></div>
                     <div class="article-body">
                         <div class="article-category">Küresel Ticaret & Lojistik</div>
@@ -1969,10 +1945,10 @@
 
     <!-- MODAL YAPI (YENİ EKLENDİ) -->
     <div class="modal-overlay" id="articleModal" onclick="closeModal(event)">
+        <button class="modal-close" onclick="closeModal()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
         <div class="modal-container" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModal()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
             <div class="modal-content">
                 <div class="modal-category" id="m-category">Kategori</div>
                 <h2 class="modal-title" id="m-title">Başlık</h2>
@@ -3103,15 +3079,170 @@
     const articleData = [
         {
             category: "Makroekonomi",
-            title: "İsrail Ekonomisi Savaşı Nasıl Absorbe Ediyor: Parçalanmış Bir Bölgede Yapısal Dayanıklılık",
+            title: "İsrail Ekonomisinde Savaşın İki Yüzü: Yapısal Direnç ve Görünmez Hasarlar",
             author: "Savaş Bilançosu",
             date: "15 Mar 2026",
             body: `
-                <p>Tekrarlayan çatışmalara rağmen İsrail'in yüksek teknoloji sektörü, güçlü döviz rezervleri (savaş öncesi 206 milyar dolar) ve derin ABD güvenlik ortaklığı, ona karşılaştırılabilir ekonomileri harap edecek ölçekte savaş maliyetlerini absorbe etme konusunda eşsiz bir kapasite kazandırmaktadır.</p>
-                <h4>Merkez Bankası ve Döviz Tamponu</h4>
-                <p>İsrail Merkez Bankası'nın devasa rezervleri, piyasalara anında likidite sağlanmasını mümkün kılmıştır. Döviz kurlarındaki şokları yumuşatmak için kullanılan rezervler, Şekel'in tamamen çökmesini engelleyen bir baraj görevi görmüştür. Hükümetin acil durum bütçesi, sivil sektörün çökmesini engellemek için hızlıca devreye alınmıştır.</p>
-                <h4>Teknolojik İzolasyon ve Uzaktan Çalışma</h4>
-                <p>Ekonominin lokomotifi olan yüksek teknoloji (High-Tech) sektörü, uzaktan çalışma esnekliği ve küresel entegrasyonu sayesinde üretimine büyük ölçüde devam edebilmiştir. Bu, savaş döneminde vergi gelirlerinin tamamen sıfırlanmasını engellemiş ve ekonomiye bir "şok emici" tampon sağlamıştır.</p>`
+                <p>7 Ekim 2023'te Hamas'ın Gazze'den gerçekleştirdiği geniş çaplı saldırıyla başlayan çatışma, zamanla Lübnan cephesini (Hizbullah), Yemen'den Husiler'in füze saldırılarını ve İran'ın Nisan 2024 ile Ekim 2024'te gerçekleştirdiği doğrudan balistik füze ve insansız hava aracı saldırılarını kapsayarak bölgesel bir boyut kazandı. Tüm bu gelişmeler İsrail ekonomisini son on yılların en ağır mali sınavıyla karşı karşıya bıraktı. Yine de tam bir çöküş yaşanmadı. Bu yazı, İsrail ekonomisinin bu yükü hangi yapısal araçlarla taşıdığını — ve bu araçların nerede sınıra yaklaştığını — nesnel verilerle ele alıyor.</p>
+
+                <h4>1. Döviz Rezervleri ve Merkez Bankası Müdahalesi</h4>
+                <p>7 Ekim öncesinde İsrail Merkez Bankası'nın (Bank of Israel) döviz rezervleri yaklaşık 200 milyar dolar düzeyindeydi. Saldırının ardından ilk işlem gününde (9 Ekim 2023, Pazartesi) Şekel dolar karşısında belirgin biçimde değer kaybetti. Merkez Bankası aynı gün 30 milyar dolara kadar piyasa müdahalesi yapabileceğini açıkladı; bu program hem doğrudan döviz satışlarını hem de repo anlaşmalarını kapsıyordu. Önemli bir teknik not: Merkez Bankası bu 30 milyarın tamamını tek seferde satmadı. Açıklama, piyasaya sinyal vermek ve spekülatif baskıyı kırmak için yapıldı; gerçek satışlar piyasa koşullarına göre dozlandı.</p>
+
+                <div style="margin:20px 0;background:#f8fafc;border-radius:10px;padding:16px 16px 8px;border:1px solid #e2e8f0;">
+                  <div style="font-size:11px;color:#64748b;font-weight:700;letter-spacing:.5px;margin-bottom:10px;">Şekelin Dolar Karşısında Değer Kaybı — Ekim 2023</div>
+                  <svg viewBox="0 0 580 195" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+                    <!-- grid -->
+                    <line x1="52" y1="24" x2="570" y2="24" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="52" y1="69" x2="570" y2="69" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="52" y1="115" x2="570" y2="115" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="52" y1="160" x2="570" y2="160" stroke="#e2e8f0" stroke-width="1"/>
+                    <!-- y labels -->
+                    <text x="48" y="27" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">4,10</text>
+                    <text x="48" y="72" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">4,00</text>
+                    <text x="48" y="118" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">3,90</text>
+                    <text x="48" y="163" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">3,80</text>
+                    <!-- 7 Ekim dikey çizgi -->
+                    <line x1="119" y1="15" x2="119" y2="165" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="121" y="22" font-size="8" fill="#d97706" font-family="sans-serif" font-weight="700">7 EKİM</text>
+                    <!-- Ekim Zirvesi annotation -->
+                    <line x1="488" y1="30" x2="488" y2="23" stroke="#dc2626" stroke-width="1"/>
+                    <text x="392" y="11" font-size="7.5" fill="#dc2626" font-family="sans-serif" font-weight="700">▲ 26 Ekim 2023: 4,0780</text>
+                    <text x="392" y="21" font-size="6.5" fill="#94a3b8" font-family="sans-serif">Tarihi zirveye yalnızca %0,36 kaldı</text>
+                    <!-- savaş öncesi alan dolgusu -->
+                    <polygon points="52,160 52,137 77,133 105,142 119,156 119,160" fill="#94a3b8" opacity="0.08"/>
+                    <!-- savaş sonrası alan dolgusu -->
+                    <polygon points="119,156 132,95 160,96 187,91 214,83 242,81 269,60 296,63 324,57 351,54 378,44 406,41 433,45 461,41 488,34 515,38 543,62 570,53 570,160 119,160" fill="#dc2626" opacity="0.07"/>
+                    <!-- savaş öncesi çizgi -->
+                    <polyline points="52,137 77,133 105,142 119,156" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <!-- savaş sonrası çizgi -->
+                    <polyline points="119,156 132,95 160,96 187,91 214,83 242,81 269,60 296,63 324,57 351,54 378,44 406,41 433,45 461,41 488,34 515,38 543,62 570,53" fill="none" stroke="#dc2626" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <!-- data points -->
+                    <circle cx="52" cy="137" r="3.5" fill="#94a3b8"/>
+                    <circle cx="77" cy="133" r="3.5" fill="#94a3b8"/>
+                    <circle cx="105" cy="142" r="3.5" fill="#94a3b8"/>
+                    <circle cx="132" cy="95" r="3.5" fill="#dc2626"/>
+                    <circle cx="160" cy="96" r="3.5" fill="#dc2626"/>
+                    <circle cx="187" cy="91" r="3.5" fill="#dc2626"/>
+                    <circle cx="214" cy="83" r="3.5" fill="#dc2626"/>
+                    <circle cx="242" cy="81" r="3.5" fill="#dc2626"/>
+                    <circle cx="269" cy="60" r="3.5" fill="#dc2626"/>
+                    <circle cx="296" cy="63" r="3.5" fill="#dc2626"/>
+                    <circle cx="324" cy="57" r="3.5" fill="#dc2626"/>
+                    <circle cx="351" cy="54" r="3.5" fill="#dc2626"/>
+                    <circle cx="378" cy="44" r="3.5" fill="#dc2626"/>
+                    <circle cx="406" cy="41" r="3.5" fill="#dc2626"/>
+                    <circle cx="433" cy="45" r="3.5" fill="#dc2626"/>
+                    <circle cx="461" cy="41" r="3.5" fill="#dc2626"/>
+                    <circle cx="488" cy="34" r="3.5" fill="#dc2626"/>
+                    <circle cx="515" cy="38" r="3.5" fill="#dc2626"/>
+                    <circle cx="543" cy="62" r="3.5" fill="#dc2626"/>
+                    <circle cx="570" cy="53" r="3.5" fill="#dc2626"/>
+                    <!-- x ekseni etiketleri -->
+                    <text x="52" y="177" text-anchor="middle" font-size="8.5" fill="#64748b" font-family="sans-serif">4 Eki</text>
+                    <text x="132" y="177" text-anchor="middle" font-size="8.5" fill="#64748b" font-family="sans-serif">9 Eki</text>
+                    <text x="269" y="177" text-anchor="middle" font-size="8.5" fill="#64748b" font-family="sans-serif">16 Eki</text>
+                    <text x="406" y="177" text-anchor="middle" font-size="8.5" fill="#64748b" font-family="sans-serif">23 Eki</text>
+                    <text x="543" y="177" text-anchor="middle" font-size="8.5" fill="#64748b" font-family="sans-serif">30 Eki</text>
+                  </svg>
+                  <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:10px;color:#64748b;margin-top:4px;padding-top:6px;border-top:1px solid #f1f5f9;">
+                    <span style="display:flex;align-items:center;gap:5px;"><span style="width:18px;height:2px;background:#94a3b8;display:inline-block;border-radius:2px;"></span>Savaş Öncesi</span>
+                    <span style="display:flex;align-items:center;gap:5px;"><span style="width:18px;height:2px;background:#dc2626;display:inline-block;border-radius:2px;"></span>Savaş Sonrası</span>
+                    <span style="display:flex;align-items:center;gap:5px;"><span style="width:18px;height:0;border-top:2px dashed #f59e0b;display:inline-block;"></span>7 Ekim Saldırısı</span>
+                  </div>
+                  <div style="font-size:9px;color:#94a3b8;margin-top:5px;">Kaynak: Investing.com</div>
+                </div>
+
+                <p>Grafikten görüldüğü üzere 7 Ekim öncesinde 3,83-3,86 bandında seyreden kur, saldırının ardından ilk işlem gününde yaklaşık 3,94'e fırladı; 26 Ekim'de ise 4,0780 ile aylık zirveye ulaştı — tarihi rekor seviyeye yalnızca %0,36 kalmıştı. Merkez Bankası'nın müdahale programı sinyali ilk sert yükselişi belirli ölçüde frenleyebildi ve kur eski seviyelerine geri çekildi; bu süreçte Merkez Bankası piyasaya 8,2 milyar dolar sürdü.</p>
+
+                <h4>2. Yüksek Teknoloji Sektörü: Görece Dirençli ama Yatırım Riski Altında</h4>
+                <p>İsrail'in yüksek teknoloji sektörü —yazılım, siber güvenlik, yarı iletken tasarımı ve bulut hizmetleri— ülkenin toplam ihracatının yarısından fazlasını oluşturuyor. Bu sektörün yapısal avantajı fiziksel altyapıdan bağımsız olması: fabrika veya liman kapatılsa da yazılım geliştirme ve hizmet sunumu büyük ölçüde sürdürülebiliyor. Savaş boyunca şirketlerin önemli bir kısmı uzaktan çalışma düzenlemelerine geçti ve uluslararası müşteriler sözleşmelerini çoğunlukla iptal etmedi.</p>
+                <p>Ancak tablonun bu olumlu yüzünün arka planında iki kritik risk büyüyor. Birincisi, yetenekli çalışanların bir bölümünün ülkeyi terk etmesiyle ortaya çıkan beyin göçü. İkincisi ve belki daha uzun vadeli etkili olanı: doğrudan yabancı yatırımlardaki (FDI) yavaşlama. Sektör üretmeye devam etse de yeni girişimlere ve kuruluş aşamasındaki şirketlere gelen sermaye akışının belirgin biçimde duraksadığı raporlanıyor. Uluslararası yatırımcılar belirsizliği fiyatlıyor; bu, teknoloji ekosistemi için orta vadede sessiz ama derin bir hasara işaret ediyor.</p>
+
+                <h4>3. ABD Güvenlik Ortaklığı: Dışarıdan Taşınan Yük</h4>
+                <p>İsrail'in bu ölçekteki savaş yükünü iç kaynakla tek başına taşıyıp taşıyamayacağı sorusunun yanıtı, büyük ölçüde ABD desteğine bakıldığında netleşiyor. Nisan 2024'te ABD Kongresi, Ukrayna ve Tayvan yardımını da kapsayan geniş bir paketin parçası olarak İsrail'e yaklaşık 14 milyar dolarlık acil askeri yardım onayladı. Bu yardım; silah sistemleri, mühimmat ve hava savunma bileşenlerini kapsıyor ve fiilen savunma bütçesinin önemli bir bölümünü dış kaynak aracılığıyla karşılıyor.</p>
+                <p>Bu ilişkinin tarihsel kökeni 1973'e uzanıyor: Yom Kippur Savaşı sırasında İsrail'in mühimmatı tükenince Nixon yönetimi, "Nikel Otu Operasyonu" (Operation Nickel Grass) adıyla büyük bir hava ikmal köprüsü kurdu ve haftalarca kesintisiz silah sevkiyatı yaptı. Elli yıl sonra bu yapısal ortaklık varlığını koruyor; İsrail ekonomisinin "dayanıklılığı" kısmen bu dış desteğin sağladığı mali nefes alanına dayanıyor.</p>
+
+                <div style="margin:20px 0;background:#f8fafc;border-radius:10px;padding:16px;border:1px solid #e2e8f0;">
+                  <div style="font-size:12px;font-weight:700;color:#1e293b;margin-bottom:10px;">ABD'nin şimdiye kadar İsrail'e yaptığı toplam yardım miktarı</div>
+                  <img src="https://i.hizliresim.com/me5atqi.png" alt="ABD İsrail'e 352 milyar dolar yardım yaptı" style="width:100%;height:auto;border-radius:6px;display:block;"/>
+                </div>
+
+                <h4>4. İnşaat ve Tarım: Filistinli İşçilerin Yokluğu</h4>
+                <p>Yüksek teknoloji sektörünün aksine fiziksel emeğe dayalı sektörler —inşaat ve tarım— savaşla birlikte ağır bir işgücü şokuyla karşı karşıya kaldı. Batı Şeria'dan her gün İsrail'e geçerek çalışan yaklaşık 80.000-90.000 Filistinli işçinin çalışma izni savaşın hemen ardından iptal edildi. Bu işçiler, konut inşaatından yol yapımına kadar pek çok alanda temel işgücü kaynağıydı.</p>
+                <p>İzinlerin iptal edilmesiyle birlikte açık iş sahaları durdu, teslim tarihleri uzadı ve yeni konut arzı hızla daraldı. Tarım bölgelerinde de benzer bir emek açığı yaşandı; Kuzey İsrail'de ise Hizbullah saldırıları nedeniyle bazı tarım arazileri terk edilmek zorunda kalındı.</p>
+
+                <div style="margin:20px 0;background:#f8fafc;border-radius:10px;padding:16px 16px 8px;border:1px solid #e2e8f0;">
+                  <div style="font-size:11px;color:#64748b;font-weight:700;letter-spacing:.5px;margin-bottom:10px;">Konut Fiyatlarının Yıllık Değişimi — Savaşın Etkisi</div>
+                  <svg viewBox="0 0 580 210" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+                    <!-- grid -->
+                    <line x1="55" y1="36" x2="570" y2="36" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="55" y1="67" x2="570" y2="67" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="55" y1="98" x2="570" y2="98" stroke="#64748b" stroke-width="1" stroke-dasharray="5,3" opacity="0.5"/>
+                    <line x1="55" y1="129" x2="570" y2="129" stroke="#e2e8f0" stroke-width="1"/>
+                    <line x1="55" y1="160" x2="570" y2="160" stroke="#e2e8f0" stroke-width="1"/>
+                    <!-- y labels -->
+                    <text x="50" y="39" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">+6%</text>
+                    <text x="50" y="70" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">+3%</text>
+                    <text x="50" y="101" text-anchor="end" font-size="9" fill="#64748b" font-family="sans-serif" font-weight="600">0%</text>
+                    <text x="50" y="132" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">-3%</text>
+                    <text x="50" y="163" text-anchor="end" font-size="9" fill="#94a3b8" font-family="sans-serif">-6%</text>
+                    <!-- 7 Ekim dikey çizgi -->
+                    <line x1="210" y1="15" x2="210" y2="170" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="212" y="23" font-size="7.5" fill="#d97706" font-family="sans-serif" font-weight="700">7 EKİM</text>
+                    <!-- Alan dolguları -->
+                    <polygon points="55,98 55,73 81,97 107,24 126,98" fill="#059669" opacity="0.18"/>
+                    <polygon points="126,98 132,122 158,142 184,151 210,156 235,147 261,137 287,124 313,112 338,104 352,98" fill="#dc2626" opacity="0.15"/>
+                    <polygon points="352,98 364,92 390,80 416,70 441,69 467,73 493,68 519,58 544,59 570,54 570,98" fill="#059669" opacity="0.18"/>
+                    <!-- Ana çizgi -->
+                    <polyline points="55,73 81,97 107,24 132,122 158,142 184,151 210,156 235,147 261,137 287,124 313,112 338,104 364,92 390,80 416,70 441,69 467,73 493,68 519,58 544,59 570,54" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <!-- Veri noktaları -->
+                    <circle cx="55" cy="73" r="3.5" fill="#059669"/>
+                    <circle cx="81" cy="97" r="3.5" fill="#64748b"/>
+                    <circle cx="107" cy="24" r="3.5" fill="#059669"/>
+                    <circle cx="132" cy="122" r="3.5" fill="#dc2626"/>
+                    <circle cx="158" cy="142" r="3.5" fill="#dc2626"/>
+                    <circle cx="184" cy="151" r="3.5" fill="#dc2626"/>
+                    <circle cx="210" cy="156" r="4" fill="#dc2626"/>
+                    <circle cx="235" cy="147" r="3.5" fill="#dc2626"/>
+                    <circle cx="261" cy="137" r="3.5" fill="#dc2626"/>
+                    <circle cx="287" cy="124" r="3.5" fill="#dc2626"/>
+                    <circle cx="313" cy="112" r="3.5" fill="#dc2626"/>
+                    <circle cx="338" cy="104" r="3.5" fill="#dc2626"/>
+                    <circle cx="364" cy="92" r="3.5" fill="#059669"/>
+                    <circle cx="390" cy="80" r="3.5" fill="#059669"/>
+                    <circle cx="416" cy="70" r="3.5" fill="#059669"/>
+                    <circle cx="441" cy="69" r="3.5" fill="#059669"/>
+                    <circle cx="467" cy="73" r="3.5" fill="#059669"/>
+                    <circle cx="493" cy="68" r="3.5" fill="#059669"/>
+                    <circle cx="519" cy="58" r="3.5" fill="#059669"/>
+                    <circle cx="544" cy="59" r="3.5" fill="#059669"/>
+                    <circle cx="570" cy="54" r="4" fill="#059669"/>
+                    <!-- Min ve son değer etiketleri -->
+                    <text x="214" y="153" font-size="7" fill="#dc2626" font-family="sans-serif" font-weight="600">-%5,66</text>
+                    <!-- x ekseni etiketleri -->
+                    <text x="55" y="183" text-anchor="middle" font-size="8" fill="#64748b" font-family="sans-serif">Nis 23</text>
+                    <text x="132" y="183" text-anchor="middle" font-size="8" fill="#64748b" font-family="sans-serif">Tem 23</text>
+                    <text x="210" y="183" text-anchor="middle" font-size="8" fill="#d97706" font-family="sans-serif" font-weight="600">Eki 23</text>
+                    <text x="287" y="183" text-anchor="middle" font-size="8" fill="#64748b" font-family="sans-serif">Oca 24</text>
+                    <text x="364" y="183" text-anchor="middle" font-size="8" fill="#64748b" font-family="sans-serif">Nis 24</text>
+                    <text x="441" y="183" text-anchor="middle" font-size="8" fill="#64748b" font-family="sans-serif">Tem 24</text>
+                    <text x="519" y="183" text-anchor="middle" font-size="8" fill="#64748b" font-family="sans-serif">Eki 24</text>
+                  </svg>
+                  <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:10px;color:#64748b;margin-top:4px;padding-top:6px;border-top:1px solid #f1f5f9;">
+                    <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(5,150,105,0.4);display:inline-block;border-radius:2px;"></span>Pozitif (reel artış)</span>
+                    <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;background:rgba(220,38,38,0.35);display:inline-block;border-radius:2px;"></span>Negatif (reel düşüş)</span>
+                  </div>
+                  <div style="font-size:9px;color:#94a3b8;margin-top:5px;">Kaynak: Global Property Guide · Enflasyondan arındırılmış yıllık değişim (%)</div>
+                </div>
+                <p>Konut fiyatları grafiğine bakıldığında, savaşın başladığı Ekim 2023'te reel fiyat değişimi -%5,66'ya geriledi. Ancak 2024 baharından itibaren fiyatlar yeniden yükselişe geçti ve Aralık 2024'te +%4,26'ya ulaştı. Bu artışın önemli bir bölümü, Filistinli işçilerin çıkmasıyla oluşan inşaat işgücü açığının yeni konut arzını kısıtlamasından kaynaklanıyor: talep aynı kalırken piyasaya çıkan konut sayısı azaldı ve fiyatlar yukarı çekildi.</p>
+
+                <h4>5. Kredi Notları: Kurumsal Güvenin Aşınması</h4>
+                <p>İsrail ekonomisinin kırılganlığını en somut biçimde yansıtan göstergelerden biri kredi notu düşürme kararları oldu. Moody's, İsrail'in notunu <strong>A1</strong> (Durağan) seviyesinden <strong>Baa1</strong>'e indirdi. S&P ise <strong>AA−</strong> (Durağan) olan notu <strong>A</strong> (Durağan) seviyesine çekti.</p>
+                <p>Bu düşüşler ne anlama geliyor? Kredi derecelendirme kuruluşları bir ülkenin notunu indirdiğinde aslında şunu söylüyor: "Bu ülkeye borç vermek eskiye göre daha riskli." Moody's'in indirimi özellikle sert — Baa1, "yatırım yapılabilir" eşiğinin hemen üzerindeki basamaktır ve İsrail'in artık en güvenli ülkeler kategorisinde değil, "orta kalite" grubunda değerlendirildiğini gösteriyor. S&P'de ise AA−'den A'ya geçiş, "mükemmel" kategorisinden "güçlü ama riskler var" kategorisine düşüş anlamına geliyor.</p>
+                <p>Piyasalara yansıması sınırlı da olsa hissedildi: not düşürümleri yatırımcıların İsrail'e bakışını bir miktar temkinli hale getirdi, tahvil faizleri üzerinde yukarı yönlü baskı oluştu ve yeni sermaye girişinde belirli bir yavaşlama gözlemlendi. Bununla birlikte İsrail ekonomisi temel işlevlerini sürdürmeye devam etti; bu düşüşler bir çöküşün değil, uzayan savaşın mali sistemde bıraktığı izlerin göstergesi.</p>
+
+                <h4>Sonuç: Savaşa Alışkın Bir Ekonomi</h4>
+                <p>İsrail, kuruluşundan bu yana kesintisiz bir güvenlik baskısı altında var olmuş bir devlet. Bu gerçeklik, ekonomisini de şekillendirdi: savunma sanayii güçlü tutuldu, döviz rezervleri geniş bırakıldı, teknoloji sektörü fiziksel altyapıya bağımlılığı azaltacak biçimde geliştirildi. Tüm bu yapı, olağanüstü dönemlerde ekonominin işlevselliğini koruyabilmesinin temel nedeni. Ancak 2023 sonrasında yaşananlar, bu adaptasyonun da sınırları olduğunu gösteriyor: bütçe açığı genişledi, kredi notları geriledi, inşaat durdu, yatırımcı güveni sarsıldı. İsrail ekonomisi savaşla yaşamayı biliyor — ama bu savaşın bedeli her geçen ay daha ağır hissettiriyor.</p>`
         },
         {
             category: "Savunma Ekonomisi",
@@ -3124,30 +3255,6 @@
                 <p>Atmosfer dışında imha gerçekleştiren Arrow 3 önleyicilerinin birim maliyeti 3-4 milyon dolar seviyesindedir. İran'ın ateşlediği yüzlerce füzenin eşzamanlı olarak havada vurulması, savunma bütçesine sadece dakikalar içinde milyarlarca dolarlık devasa faturalar çıkarmıştır. Savaş ekonomisinde en çok nakit tüketen kalem, taarruz değil savunma önlemeleridir.</p>
                 <h4>Gelecek Planlaması: Demir Işın (Iron Beam)</h4>
                 <p>Uzun vadede bu sürdürülemez asimetriyi dengelemek için İsrail ordusu, Iron Beam adlı lazer tabanlı hava savunma sistemlerini hızlandırmaktadır. Bu sistemler tam kapasite devreye girdiğinde, önleme maliyetini atış başına sadece birkaç dolara kadar düşürebilir ve ekonomik dengeyi yeniden sağlayabilir.</p>`
-        },
-        {
-            category: "Finansal Piyasalar",
-            title: "Savaş Döneminde TASE: Hisse Senedi Piyasaları, Devlet Borcu ve Şekel",
-            author: "Savaş Bilançosu",
-            date: "10 Mar 2026",
-            body: `
-                <p>Tel Aviv Borsası'ndaki (TASE) dalgalanmalar; farklı sektörlerin birbirinden ayrışan davranışlarını ve Merkez Bankası'nın döviz müdahalesini nasıl şekillendirdiğini gösteriyor. İlk üç günde borsa endeksi ciddi bir düşüş yaşarken sektörler arası farklar belirginleşti.</p>
-                <h4>Savunma Rallisi ve Çöken Sektörler</h4>
-                <p>Savaş haberleriyle birlikte Elbit Systems ve Rafael gibi savunma sanayii firmalarının hisselerinde ralli görülmüş, yatırımcılar devletin savunma bütçesindeki dev artışı fiyatlamıştır. Ancak öte yandan gayrimenkul, inşaat ve özellikle turizm sektörleri, savaşın yarattığı belirsizlik ve işgücü eksikliğinden en büyük darbeyi almıştır.</p>
-                <h4>Faiz Politikaları</h4>
-                <p>Yabancı sermaye çıkışını engellemek için İsrail Merkez Bankası faiz indirimlerini ertelemiş ve iç piyasayı desteklemek adına özel devlet tahvilleri ihraç etmiştir. Egemen risk primleri (CDS) hızla artmış, devlet borçlanma maliyeti tarihsel rekor kırmıştır.</p>`
-        },
-        {
-            category: "Yeniden Yapılanma Ekonomisi",
-            title: "Savaş Sonrası Toparlanma Kılavuzu: 1973 Yom Kippur'dan Günümüze Dersler",
-            author: "Savaş Bilançosu",
-            date: "8 Mar 2026",
-            body: `
-                <p>ABD yardımı ve yapısal ekonomik reformla hızlandırılan 1973 sonrası Yom Kippur Savaşı toparlanması, günümüz için en yakın tarihsel emsal niteliğindedir. Ekonominin savaştan sonra nasıl bir V-tipi veya U-tipi toparlanma çizeceği, alınacak kararlara bağlıdır.</p>
-                <h4>"Kayıp On Yıl" Riskinden Kaçış</h4>
-                <p>İsrail, 1973 sonrasında yaşadığı hiperenflasyonlu "Kayıp On Yıl"ı tekrarlamamak için yüksek teknolojiye, yapay zekaya ve yenilenebilir enerjiye devasa teşvikler sunmalıdır. Finansal yardımın ötesinde, şeffaflık ve kurumsal güvenilirlik uluslararası yatırımları tekrar ülkeye çekmenin anahtarıdır.</p>
-                <h4>Dış Yardımların Rolü</h4>
-                <p>Doğrudan yabancı yatırımların (FDI) ve turizmin geri dönüş hızı, çatışmanın diplomatik çözümünün ne kadar sağlam temellere oturduğuna bağlı olacaktır. Uluslararası garantörlerin desteği, piyasa güveninin yeniden tesisi için kritik öneme sahiptir.</p>`
         },
         // YENİ EKLENEN FOTOĞRAFLI UZUN MAKALE (GÜNCELLENDİ)
         {
