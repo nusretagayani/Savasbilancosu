@@ -781,6 +781,7 @@
         .acc-tag-red   { background:#fee2e2; color:#991b1b; }
         .acc-tag-orange{ background:#fef3c7; color:#92400e; }
         .acc-tag-blue  { background:#dbeafe; color:#1e40af; }
+        .article-extra { display: none !important; }
         .article-card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -2029,6 +2030,11 @@
                     </div>
                 </div>
 
+            </div>
+            <div id="showMoreArticlesBtn" style="display:none;text-align:center;margin-top:32px;">
+                <button onclick="showMoreArticles()" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+                    Daha Fazla Makale <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
             </div>
         </div>
     </section>
@@ -3939,6 +3945,21 @@
             `
         }
     ];
+
+    // ─── MAKALE GRID LİMİT ───
+    (function() {
+        const allCards = document.querySelectorAll('.articles-grid .article-card');
+        const visibleCards = Array.from(allCards).filter(c => c.style.display !== 'none');
+        if (visibleCards.length > 4) {
+            visibleCards.slice(4).forEach(c => c.classList.add('article-extra'));
+            document.getElementById('showMoreArticlesBtn').style.display = 'block';
+        }
+    })();
+
+    function showMoreArticles() {
+        document.querySelectorAll('.article-extra').forEach(c => c.classList.remove('article-extra'));
+        document.getElementById('showMoreArticlesBtn').style.display = 'none';
+    }
 
     function openArticleModal(index) {
         const data = articleData[index];
