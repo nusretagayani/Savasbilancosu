@@ -877,10 +877,13 @@
 
         /* ─── FOOTER ─── */
         .footer {
-            background: var(--text);
+            background: #0d1b2e;
             color: rgba(255,255,255,0.5);
             padding: 32px 0;
             font-size: 12px;
+        }
+        [data-theme="dark"] .footer {
+            background: #010b18;
         }
         .footer-inner {
             display: grid;
@@ -1291,7 +1294,7 @@
             <a href="#sources">Kaynaklar</a>
         </div>
         <div style="display:flex;align-items:center;gap:12px;">
-            <div class="nav-updated">Son güncelleme: <span>21 Mar 2026 · 14:32 UTC</span></div>
+            <div class="nav-updated">Son güncelleme: <span>4 Nis 2026 · 14:32 UTC</span></div>
             <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
                 <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -1311,7 +1314,7 @@
                 </div>
                 <div class="hero-meta">
                     <div class="hero-conflict-start">Çatışma Günü</div>
-                    <div class="hero-days" id="dayCounter">21</div>
+                    <div class="hero-days" id="dayCounter">35</div>
                     <div class="hero-days-label">28 Şub 2026'dan beri</div>
                 </div>
             </div>
@@ -1323,33 +1326,33 @@
         <div class="container">
             <div class="section-label">§ 01 — Gösterge Paneli</div>
             <h2 class="section-title">Temel Ekonomik Göstergeler</h2>
-            <p class="section-sub">21 Mart 2026 itibarıyla gerçek zamanlı tahminler. Rakamlar ön nitelikte olup veriler netleştikçe güncellenebilir.</p>
+            <p class="section-sub">4 Nisan 2026 itibarıyla gerçek zamanlı tahminler. Rakamlar ön nitelikte olup veriler netleştikçe güncellenebilir.</p>
 
             <!-- Metric Cards -->
             <div class="metrics-grid">
                 <div class="metric-card accent-blue fade-in">
                     <div class="metric-label">Toplam Doğrudan Maliyet</div>
-                    <div class="metric-value" id="totalCost">$12,5 Milyar</div>
-                    <div class="metric-change up">▲ 28 Şub – 21 Mar 2026</div>
+                    <div class="metric-value" id="totalCost">$21,2 Milyar</div>
+                    <div class="metric-change up">▲ 28 Şub – 4 Nis 2026</div>
                     <div class="metric-note">Dolaylı maliyetler dahil değildir.</div>
                 </div>
                 <div class="metric-card accent-red fade-in">
                     <div class="metric-label">Günlük Operasyon Maliyeti</div>
-                    <div class="metric-value">$543+ Milyon</div>
+                    <div class="metric-value">$1,06+ Milyar</div>
                     <div class="metric-change up">▲ Çatışma sürdükçe artıyor</div>
-                    <div class="metric-note">Askeri op. + hava savunma + hasar</div>
+                    <div class="metric-note">Tüm direkt ve dolaylı maliyetlerin günlük toplamı</div>
                 </div>
                 <div class="metric-card accent-orange fade-in">
                     <div class="metric-label">Toplam (Direkt + Dolaylı) Maliyet</div>
-                    <div class="metric-value">$128+ Milyar</div>
+                    <div class="metric-value">$144+ Milyar</div>
                     <div class="metric-change up">▲ 3 savaşın kümülatif toplamı</div>
                     <div class="metric-note">7 Ekim · 12 Gün · 28 Şubat dahildir</div>
                 </div>
                 <div class="metric-card accent-green fade-in">
                     <div class="metric-label">Ölü ve Yaralı Sayısı</div>
-                    <div class="metric-value" style="font-size:22px;">18 · 3.730</div>
-                    <div class="metric-change up">▲ 21 Mar 2026 itibarıyla</div>
-                    <div class="metric-note">18 ölü, 3.730 yaralı (İsrail tarafı)</div>
+                    <div class="metric-value" style="font-size:22px;">24 · 6.594</div>
+                    <div class="metric-change up">▲ 4 Nis 2026 itibarıyla</div>
+                    <div class="metric-note">24 ölü, 6.594 yaralı (İsrail tarafı)</div>
                 </div>
             </div>
 
@@ -1383,13 +1386,13 @@
                     <div class="chart-header">
                         <div>
                             <div class="chart-title">Kümülatif Savaş Maliyeti — Günlük</div>
-                            <div class="chart-sub">Çatışma başlangıcından bu yana toplam tahmini ekonomik maliyet (Milyar USD)</div>
+                            <div class="chart-sub">Yalnızca doğrudan harcamalar — askeri operasyonlar ve altyapı hasarı (Milyar USD)</div>
                         </div>
-                        <span class="chart-badge">ÇİZGİ · 21 gün</span>
+                        <span class="chart-badge">ÇİZGİ · 35 gün</span>
                     </div>
                     <div class="chart-canvas-wrap"><canvas id="cumulativeCostChart" height="200"></canvas></div>
                     <div class="chart-explain">
-                        Bu grafik yalnızca <strong>doğrudan bütçe harcamalarını</strong> — askeri operasyonlar ve altyapı hasarını — yansıtmakta olup 21 günlük kümülatif toplam <strong>$12,5 milyara</strong> ulaşmıştır. Ekonomik üretim kaybı ($5,0 Milyar) ve seferber edilen işgücünün yarattığı dolaylı yük ($4,3 Milyar) bu rakama dahil değildir; tüm kategoriler birlikte değerlendirildiğinde toplam ekonomik maliyet <strong>$21,8 milyarı</strong> aşmaktadır. Ancak bu rakam bile gerçek maliyetin yalnızca görünen yüzüdür: savaşın bütçe üzerindeki kalıcı baskısı, enflasyonist sarmal, GSYİH'deki yapısal daralma ve yatırımcı güvenindeki erozyon gibi <strong>görünmez maliyetler</strong> hesaba katıldığında toplam yük çok daha büyük bir rakama işaret etmektedir. Bu maliyetler çatışma uzadıkça doğrusal bir artış yerine <strong>giderek hızlanan bir seyir</strong> izleme eğilimindedir — birikmiş hasar büyüdükçe ekonominin toparlanma kapasitesi de aşınmaktadır.
+                        Bu grafik yalnızca <strong>doğrudan bütçe harcamalarını</strong> — askeri operasyonlar ve altyapı hasarını — yansıtmakta olup 35 günlük kümülatif toplam <strong>$21,2 milyara</strong> ulaşmıştır. Ekonomik üretim kaybı ($7,4–15,9 Milyar) ve seferber edilen işgücünün yarattığı dolaylı yük ($5,3 Milyar) bu rakama dahil değildir; tüm kategoriler birlikte değerlendirildiğinde toplam ekonomik maliyet <strong>~$38,2 milyarı</strong> aşmaktadır. Ancak bu rakam bile gerçek maliyetin yalnızca görünen yüzüdür: savaşın bütçe üzerindeki kalıcı baskısı, enflasyonist sarmal, GSYİH'deki yapısal daralma ve yatırımcı güvenindeki erozyon gibi <strong>görünmez maliyetler</strong> hesaba katıldığında toplam yük çok daha büyük bir rakama işaret etmektedir. Bu maliyetler çatışma uzadıkça doğrusal bir artış yerine <strong>üstel (exponential) bir seyir</strong> izlemekte olup projeksiyonlar da bu modele göre hesaplanmıştır — birikmiş hasar büyüdükçe günlük maliyet oranı da artmakta, ekonominin toparlanma kapasitesi ise aşınmaktadır.
                     </div>
                 </div>
                 <div class="chart-card">
@@ -1402,7 +1405,7 @@
                     </div>
                     <div class="chart-canvas-wrap"><canvas id="donutChart" height="200"></canvas></div>
                     <div class="chart-explain">
-                        <strong>Askeri harcama</strong> toplam maliyetin <strong>%52,3'ünü</strong> oluştururken bunu <strong>ekonomik üretim kaybı (%22,9)</strong>, <strong>yedek asker (%19,7)</strong> ve <strong>altyapı hasarı (%5,0)</strong> izlemektedir. Doğrudan harcamalar (askeri + altyapı) toplamın yaklaşık %57'sine karşılık gelirken, dolaylı ekonomik yükler (üretim + işgücü kaybı) kalan %43'ünü oluşturmaktadır.
+                        <strong>Askeri harcama</strong> toplam maliyetin <strong>%52,6'sını</strong> oluştururken bunu <strong>ekonomik üretim kaybı (%30,6, ortalama tahmin)</strong>, <strong>yedek asker (%13,9)</strong> ve <strong>altyapı hasarı (%2,9)</strong> izlemektedir. Ekonomik üretim kaybı için $11,7 Milyar ortalama değer kullanılmış olup aralık $7,4–15,9 Milyar'dır. Doğrudan harcamalar (askeri + altyapı) toplamın yaklaşık %55,5'ine karşılık gelirken, dolaylı ekonomik yükler (üretim + işgücü kaybı) kalan %44,5'ini oluşturmaktadır. Projeksiyonlar doğrusal (lineer) değil, <strong>üstel (exponential)</strong> büyüme modeli esas alınarak hesaplanmıştır.
                     </div>
                 </div>
             </div>
@@ -1543,8 +1546,8 @@
                     <div class="breakdown-body">
                         <div class="breakdown-desc">İran saldırıları ülkenin altyapısına zarar vermiştir. Hedeflenen kritik tesislerdeki üretim kaybı, şebeke kesintileri ve altyapı onarım gereksinimleri bu faturayı oluşturmaktadır. Bu hesaplamada 12 günlük savaştaki maliyetler referans alınmıştır.</div>
                         <div class="breakdown-bar-wrap">
-                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%5,0</span></div>
-                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#f97316" data-target="5.0"></div></div>
+                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%2,9</span></div>
+                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#f97316" data-target="2.9"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1554,15 +1557,15 @@
                     <div class="breakdown-header production">
                         <div class="breakdown-top">
                             <div class="breakdown-cat-title" style="color:#166534">Ekonomik Üretim Kaybı</div>
-                            <div class="breakdown-amount">$5,0 Milyar</div>
+                            <div class="breakdown-amount">$11,7 Milyar</div>
                         </div>
                         <div class="breakdown-cat-sub" style="color:#22c55e">Kümülatif · Üretim durması, iş gücü mobilizasyonu</div>
                     </div>
                     <div class="breakdown-body">
-                        <div class="breakdown-desc">Çatışmanın başladığı 28 Şubat'tan bu yana biriken <strong>kümülatif ekonomik üretim kaybı 5 milyar dolara</strong> ulaşmıştır. Tam kapanma ve kısmi kapanma önlemleri, sanayi durması ve iç tüketimdeki sert gerilemeyle birleşerek günlük ortalama ~<strong>238 milyon dolarlık</strong> kayba yol açmaktadır. Bu kümülatif rakam; işgücü mobilizasyonu, fabrika kapanmaları ve ihracat kesintilerinden kaynaklanan dolaylı etkileri de kapsamaktadır.</div>
+                        <div class="breakdown-desc">Çatışmanın başladığı 28 Şubat'tan bu yana biriken <strong>kümülatif ekonomik üretim kaybı ortalama tahminle 11,7 milyar dolara</strong> ulaşmıştır (aralık: $7,4–15,9 Milyar). Hesaplar doğrusal değil, <strong>üstel (exponential)</strong> büyüme modeline göre yapılmıştır; savaş uzadıkça günlük kayıp oranı da artmaktadır. Tam kapanma ve kısmi kapanma önlemleri, sanayi durması ve iç tüketimdeki sert gerilemeyle birleşerek günlük ortalama ~<strong>$333 milyon</strong> kayba yol açmaktadır. Bu kümülatif rakam; işgücü mobilizasyonu, fabrika kapanmaları ve ihracat kesintilerinden kaynaklanan dolaylı etkileri de kapsamaktadır.</div>
                         <div class="breakdown-bar-wrap">
-                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%22,9</span></div>
-                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#22c55e" data-target="22.9"></div></div>
+                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%30,6</span></div>
+                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#22c55e" data-target="30.6"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1572,15 +1575,15 @@
                     <div class="breakdown-header military" style="background: #f1f5f9; border-bottom: 1px solid #cbd5e1;">
                         <div class="breakdown-top">
                             <div class="breakdown-cat-title" style="color:#334155">Askeri Harcama</div>
-                            <div class="breakdown-amount">$11,4 Milyar</div>
+                            <div class="breakdown-amount">$20,1 Milyar</div>
                         </div>
                         <div class="breakdown-cat-sub" style="color:#64748b">Kümülatif · Operasyonlar, mühimmat ve lojistik</div>
                     </div>
                     <div class="breakdown-body">
-                        <div class="breakdown-desc">28 Şubat’tan bu yana biriken <strong>kümülatif askeri harcama 11,4 milyar dolara</strong> ulaşmıştır. Günlük ortalama ~<strong>543 milyon dolar</strong> seviyesinde seyreden operasyonel maliyet; mühimmat tüketimi, lojistik destek, yedek asker maaşları, çok cepheli hava operasyonları ve donanma konuşlanmalarını kapsamaktadır. Bu kümülatif rakama stok yenileme ve tahrip olan sistemlerin ağır bakım maliyetleri dahil değildir.</div>
+                        <div class="breakdown-desc">28 Şubat’tan bu yana biriken <strong>kümülatif askeri harcama 20,1 milyar dolara</strong> ulaşmıştır. Projeksiyonlar <strong>üstel (exponential)</strong> modele göre hesaplanmıştır; savaş günleri ilerledikçe operasyonel yoğunluk ve buna bağlı giderler de artmaktadır. Günlük ortalama ~<strong>574 milyon dolar</strong> seviyesinde seyreden operasyonel maliyet; mühimmat tüketimi, lojistik destek, yedek asker maaşları, çok cepheli hava operasyonları ve donanma konuşlanmalarını kapsamaktadır. Bu kümülatif rakama stok yenileme ve tahrip olan sistemlerin ağır bakım maliyetleri dahil değildir.</div>
                         <div class="breakdown-bar-wrap">
-                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%52,3</span></div>
-                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#475569" data-target="52.3"></div></div>
+                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%52,6</span></div>
+                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#475569" data-target="52.6"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1590,15 +1593,15 @@
                     <div class="breakdown-header humanitarian">
                         <div class="breakdown-top">
                             <div class="breakdown-cat-title" style="color:#9f1239">Yedek Asker</div>
-                            <div class="breakdown-amount">$4,3 Milyar</div>
+                            <div class="breakdown-amount">$5,3 Milyar</div>
                         </div>
                         <div class="breakdown-cat-sub" style="color:#f43f5e">Kümülatif · Sivil iş gücü kaybı</div>
                     </div>
                     <div class="breakdown-body">
-                        <div class="breakdown-desc">400-450 bin yedek askerin seferber edilmesiyle birlikte 28 Şubat'tan bu yana biriken <strong>kümülatif yedek asker maliyeti 4,3 milyar dolara</strong> ulaşmıştır. Bu rakam yalnızca çalışma hayatından çekilen işgücünün ekonomiye yansıttığı üretim kaybını ölçmektedir; maaş ve lojistik giderler ise askeri harcama kalemi içinde ayrıca muhasebeleştirilmektedir. Piyasadaki işgücü açığı büyüdükçe bu dolaylı maliyet artmaya devam etmektedir.</div>
+                        <div class="breakdown-desc">400-450 bin yedek askerin seferber edilmesiyle birlikte 28 Şubat'tan bu yana biriken <strong>kümülatif sivil işgücü kaybı 5,3 milyar dolara</strong> ulaşmıştır. Bu rakam yalnızca çalışma hayatından çekilen işgücünün ekonomiye yansıttığı üretim kaybını ölçmektedir; maaş ve lojistik giderler ise askeri harcama kalemi içinde ayrıca muhasebeleştirilmektedir. Projeksiyonlar <strong>üstel (exponential)</strong> modele göre hesaplanmıştır; işgücü açığının birikmesiyle bu dolaylı maliyet de giderek artan bir hızda büyümektedir.</div>
                         <div class="breakdown-bar-wrap">
-                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%19,7</span></div>
-                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#f43f5e" data-target="19.7"></div></div>
+                            <div class="breakdown-bar-label"><span>Toplam içindeki pay</span><span>%13,9</span></div>
+                            <div class="breakdown-bar-track"><div class="breakdown-bar-fill" style="width:0%;background:#f43f5e" data-target="13.9"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1610,7 +1613,7 @@
                     <thead>
                         <tr>
                             <th>Kategori</th>
-                            <th>21 Mart 2026 İtibarıyla Maliyet</th>
+                            <th>4 Nisan 2026 İtibarıyla Maliyet</th>
                             <th>Günlük Oran</th>
                             <th>30 Günlük Projeksiyon</th>
                             <th>90 Günlük Projeksiyon</th>
@@ -1628,34 +1631,34 @@
                         </tr>
                         <tr>
                             <td><strong>Ekonomik Üretim Kaybı</strong><span style="font-size:9px;font-family:var(--font-mono);background:#f0fdf4;color:#15803d;border-radius:3px;padding:1px 5px;margin-left:6px;font-weight:500;">Dolaylı</span></td>
-                            <td class="mono">$5,0 Milyar</td>
-                            <td class="mono">~$238 Milyon</td>
-                            <td class="mono">$7,1 Milyar</td>
-                            <td class="mono">$21,4 Milyar</td>
+                            <td class="mono">$11,7 Milyar <span style="font-size:10px;color:#64748b;">(ort. · $7,4–15,9B)</span></td>
+                            <td class="mono">~$333 Milyon (ort.)</td>
+                            <td class="mono">$11,7 Milyar</td>
+                            <td class="mono">$48,6 Milyar</td>
                             <td><span class="tag tag-high">YÜKSEK</span></td>
                         </tr>
                         <tr>
                             <td><strong>Askeri Harcama</strong><span style="font-size:9px;font-family:var(--font-mono);background:#eff6ff;color:#1d4ed8;border-radius:3px;padding:1px 5px;margin-left:6px;font-weight:500;">Direkt</span></td>
-                            <td class="mono">$11,4 Milyar</td>
-                            <td class="mono">~$543 Milyon</td>
-                            <td class="mono">$16,3 Milyar</td>
-                            <td class="mono">$48,9 Milyar</td>
+                            <td class="mono">$20,1 Milyar</td>
+                            <td class="mono">~$574 Milyon</td>
+                            <td class="mono">$20,2 Milyar</td>
+                            <td class="mono">$84,0 Milyar</td>
                             <td><span class="tag tag-high">YÜKSEK</span></td>
                         </tr>
                         <tr>
                             <td><strong>Yedek Asker</strong><span style="font-size:9px;font-family:var(--font-mono);background:#f0fdf4;color:#15803d;border-radius:3px;padding:1px 5px;margin-left:6px;font-weight:500;">Dolaylı</span></td>
-                            <td class="mono">$4,3 Milyar</td>
-                            <td class="mono">~$205 Milyon</td>
-                            <td class="mono">$6,1 Milyar</td>
-                            <td class="mono">$18,4 Milyar</td>
+                            <td class="mono">$5,3 Milyar</td>
+                            <td class="mono">~$151 Milyon</td>
+                            <td class="mono">$5,3 Milyar</td>
+                            <td class="mono">$22,0 Milyar</td>
                             <td><span class="tag tag-high">YÜKSEK</span></td>
                         </tr>
                         <tr style="background:var(--surface-2);">
                             <td><strong>TOPLAM</strong></td>
-                            <td class="mono" style="font-weight:700;color:var(--blue)">~$21,8 Milyar</td>
-                            <td class="mono" style="font-weight:700">~$986 Milyon</td>
-                            <td class="mono" style="font-weight:700">~$29,5 Milyar</td>
-                            <td class="mono" style="font-weight:700">~$88,7 Milyar</td>
+                            <td class="mono" style="font-weight:700;color:var(--blue)">~$38,2 Milyar</td>
+                            <td class="mono" style="font-weight:700">~$1,06 Milyar</td>
+                            <td class="mono" style="font-weight:700">~$37,2 Milyar</td>
+                            <td class="mono" style="font-weight:700">~$154,6 Milyar</td>
                             <td>—</td>
                         </tr>
                     </tbody>
@@ -1979,7 +1982,7 @@
                     <div class="article-img" style="background: linear-gradient(90deg, #4f46e5, #818cf8);"></div>
                     <div class="article-body">
                         <div class="article-category">Jeopolitik & Savaş Günlüğü</div>
-                        <h3 class="article-title">Savaşın Akışı: Başlangıçtan Bugüne (28 Şubat - 12 Mart)</h3>
+                        <h3 class="article-title">Savaşın Akışı: Başlangıçtan Bugüne (28 Şubat - 4 Nisan)</h3>
                         <p class="article-excerpt">ABD ve İsrail, Cumartesi günü İran’a karşı son on yılların en iddialı saldırılarını gerçekleştirdi; bu operasyonda İran’ın Dini Lideri Ayetullah Ali Hamaney hayatını kaybetti. İran'ın iktidar yapısına yönelik saldırılar ve olası rejim değişikliği senaryoları detaylıca değerlendiriliyor...</p>
                         <div class="article-footer">
                             <div class="article-author"><strong>Reuters (Çeviri)</strong></div>
@@ -2083,7 +2086,7 @@
             <div class="footer-inner">
                 <div>
                     <div class="footer-brand">SavaşBilançosu</div>
-                    <div class="footer-disclaimer">Çatışma etkilerinin bağımsız ekonomik analizi. Herhangi bir hükümet, askeri veya finansal kuruluşla bağlantısı yoktur. Veriler yalnızca bağımsız araştırma tahminlerini temsil etmektedir. Tüm projeksiyonlar yüksek belirsizlik taşımakta olup yatırım kararlarında kullanılmamalıdır.<br><br>Son güncelleme: 21 Mart 2026 · 14:32 UTC</div>
+                    <div class="footer-disclaimer">Çatışma etkilerinin bağımsız ekonomik analizi. Herhangi bir hükümet, askeri veya finansal kuruluşla bağlantısı yoktur. Veriler yalnızca bağımsız araştırma tahminlerini temsil etmektedir. Tüm projeksiyonlar yüksek belirsizlik taşımakta olup yatırım kararlarında kullanılmamalıdır.<br><br>Son güncelleme: 4 Nisan 2026 · 14:32 UTC</div>
                 </div>
                 <div class="footer-right">
                     <div class="footer-links">
@@ -2186,8 +2189,8 @@
 
     // ─── CUMULATIVE COST LINE CHART ───
     (function() {
-        const labels = ['Gün 1','Gün 2','Gün 3','Gün 4','Gün 5','Gün 6','Gün 7','Gün 8','Gün 9','Gün 10','Gün 11','Gün 12','Gün 13','Gün 14','Gün 15','Gün 16','Gün 17','Gün 18','Gün 19','Gün 20','Gün 21'];
-        const cumulative = [0.76, 1.48, 2.11, 2.59, 3.07, 3.54, 3.96, 4.37, 4.76, 5.14, 5.50, 5.86, 6.34, 6.85, 7.43, 8.10, 8.82, 9.63, 10.51, 11.48, 12.50];
+        const labels = ['Gün 1','Gün 2','Gün 3','Gün 4','Gün 5','Gün 6','Gün 7','Gün 8','Gün 9','Gün 10','Gün 11','Gün 12','Gün 13','Gün 14','Gün 15','Gün 16','Gün 17','Gün 18','Gün 19','Gün 20','Gün 21','Gün 22','Gün 23','Gün 24','Gün 25','Gün 26','Gün 27','Gün 28','Gün 29','Gün 30','Gün 31','Gün 32','Gün 33','Gün 34','Gün 35'];
+        const cumulative = [0.46, 0.94, 1.41, 1.90, 2.39, 2.89, 3.40, 3.91, 4.44, 4.97, 5.51, 6.06, 6.61, 7.17, 7.75, 8.33, 8.92, 9.52, 10.12, 10.74, 11.37, 12.00, 12.65, 13.30, 13.97, 14.64, 15.33, 16.02, 16.73, 17.45, 18.18, 18.91, 19.66, 20.42, 21.20];
 
         new Chart(document.getElementById('cumulativeCostChart'), {
             type: 'line',
@@ -2235,7 +2238,7 @@
             data: {
                 labels: ['Altyapı Hasarı', 'Ekonomik Üretim Kaybı', 'Askeri Harcama', 'Yedek Asker'],
                 datasets: [{
-                    data: [1.10, 5.00, 11.40, 4.30],
+                    data: [1.10, 11.70, 20.10, 5.30],
                     backgroundColor: ['#f97316','#059669','#475569','#f43f5e'],
                     borderWidth: 2,
                     borderColor: '#fff',
@@ -3073,12 +3076,12 @@
     // ─── ENERGY PRICE CHARTS (BRENT + TTF) — STATİK VERİ (2026-03-20) ───
     (function() {
         // Statik veri — API çağrısı yok, sıfır limit tüketimi
-        const BRENT_DATES  = ["2026-02-23","2026-02-24","2026-02-25","2026-02-26","2026-02-27","2026-02-28","2026-03-01","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-07","2026-03-08","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-14","2026-03-15","2026-03-16","2026-03-17","2026-03-18","2026-03-19"];
-        const BRENT_PRICES = [71.41,71.61,71.09,70.84,71.82,72.48,72.94,78.21,81.42,82.24,83.87,88.58,92.69,94.68,104.28,90.55,90.64,98.11,100.84,103.14,103.45,102.97,102.87,105.57,111.71];
-        const TTF_DATES    = ["2026-02-21","2026-02-22","2026-02-23","2026-02-24","2026-02-25","2026-02-26","2026-02-27","2026-02-28","2026-03-01","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-07","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-14","2026-03-16","2026-03-17","2026-03-18","2026-03-19"];
-        const TTF_PRICES   = [31.52,31.52,31.32,31.45,30.55,30.92,31.59,31.51,31.51,39.14,43.23,52.88,46.87,49.51,52.28,57.95,48.87,49.03,51.16,50.17,49.69,51.44,51.74,53.36,64.01];
-        const BRENT_LIVE   = 112.96;
-        const TTF_LIVE     = 59.52;
+        const BRENT_DATES  = ["2026-02-23","2026-02-24","2026-02-25","2026-02-26","2026-02-27","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-16","2026-03-17","2026-03-18","2026-03-19","2026-03-20","2026-03-23","2026-03-24","2026-03-25","2026-03-26","2026-03-27"];
+        const BRENT_PRICES = [71.49,70.77,70.85,70.75,72.48,77.74,81.40,81.40,85.41,92.69,98.96,87.80,91.98,100.46,103.14,100.21,103.42,107.38,108.65,112.19,99.94,104.49,102.22,108.01,112.57];
+        const TTF_DATES    = ["2026-02-23","2026-02-24","2026-02-25","2026-02-26","2026-02-27","2026-03-02","2026-03-03","2026-03-04","2026-03-05","2026-03-06","2026-03-09","2026-03-10","2026-03-11","2026-03-12","2026-03-13","2026-03-16","2026-03-17","2026-03-18","2026-03-19","2026-03-20","2026-03-23","2026-03-24","2026-03-25","2026-03-26","2026-03-27"];
+        const TTF_PRICES   = [31.83,30.89,31.05,32.22,31.96,44.51,54.29,48.77,50.73,53.38,56.45,47.39,49.99,50.87,50.12,50.89,51.56,54.66,61.85,59.26,56.68,54.04,52.82,55.22,54.18];
+        const BRENT_LIVE   = 112.57;
+        const TTF_LIVE     = 54.18;
         // 28 Şubat 2026 — işaretlenecek tarih
         const MARK_DATE = new Date('2026-02-28');
 
@@ -3125,6 +3128,8 @@
         function renderChart(canvasId, labels, prices, markIdx, color, unit, decimals) {
             const canvas = document.getElementById(canvasId);
             if (!canvas) return;
+            const existing = Chart.getChart(canvas);
+            if (existing) existing.destroy();
             const grd = makeGradient(canvas.getContext('2d'), color);
             new Chart(canvas, {
                 type: 'line',
@@ -3188,6 +3193,66 @@
         }
         setTicker('tickerBrent', BRENT_PRICES[BRENT_PRICES.length-1], BRENT_PRICES[BRENT_PRICES.length-2], '$');
         setTicker('tickerTtf',   TTF_PRICES[TTF_PRICES.length-1],   TTF_PRICES[TTF_PRICES.length-2],   '€');
+
+        // ─── Canlı veri güncelleme (Yahoo Finance) ───
+        async function fetchLiveData() {
+            const OIL_KEY = '119d2e855d4455ac66ac64f1e8f31bf112161e935bd34576e6452e963f5cc16c';
+            const PROXY   = 'https://api.allorigins.win/raw?url=';
+
+            // ── Brent: OilPriceAPI ──
+            async function fetchBrent() {
+                const resp = await fetch('https://api.oilpriceapi.com/v1/prices?by_code=BRENT_CRUDE_USD&by_period=daily', {
+                    headers: { 'Authorization': `Token ${OIL_KEY}` }
+                });
+                if (!resp.ok) throw new Error(`OilPriceAPI ${resp.status}`);
+                const json = await resp.json();
+                return json.data
+                    .map(d => ({ date: d.formatted_date.substring(0, 10), price: parseFloat(d.price) }))
+                    .filter(d => d.date >= '2026-02-23')
+                    .sort((a, b) => a.date.localeCompare(b.date));
+            }
+
+            // ── TTF: Yahoo Finance via CORS proxy ──
+            async function fetchTTF() {
+                const url = 'https://query1.finance.yahoo.com/v8/finance/chart/TTF=F?interval=1d&range=60d';
+                const resp = await fetch(PROXY + encodeURIComponent(url));
+                if (!resp.ok) throw new Error(`Yahoo TTF ${resp.status}`);
+                const json = await resp.json();
+                const result = json.chart.result[0];
+                const timestamps = result.timestamp;
+                const closes = result.indicators.quote[0].close;
+                return timestamps
+                    .map((t, i) => ({ date: new Date(t * 1000).toISOString().split('T')[0], price: closes[i] }))
+                    .filter(d => d.price !== null && d.date >= '2026-02-23');
+            }
+
+            // Brent güncelle
+            try {
+                const brent = await fetchBrent();
+                if (brent.length > 1) {
+                    const dates  = brent.map(d => d.date);
+                    const prices = brent.map(d => d.price);
+                    const labels = dates.map(d => new Date(d).toLocaleDateString('tr-TR', { day:'2-digit', month:'short' }));
+                    renderChart('brentChart', labels, prices, findMarkIndex(dates), 'rgba(5,82,181,1)', 'USD/varil', 2);
+                    document.getElementById('brentCurrentPrice').textContent = `$${prices[prices.length-1].toFixed(2)} /varil`;
+                    setTicker('tickerBrent', prices[prices.length-1], prices[prices.length-2], '$');
+                }
+            } catch(e) { console.warn('Brent veri hatası:', e.message); }
+
+            // TTF güncelle
+            try {
+                const ttf = await fetchTTF();
+                if (ttf.length > 1) {
+                    const dates  = ttf.map(d => d.date);
+                    const prices = ttf.map(d => d.price);
+                    const labels = dates.map(d => new Date(d).toLocaleDateString('tr-TR', { day:'2-digit', month:'short' }));
+                    renderChart('ttfChart', labels, prices, findMarkIndex(dates), 'rgba(8,145,178,1)', 'EUR/MWh', 2);
+                    document.getElementById('ttfCurrentPrice').textContent = `€${prices[prices.length-1].toFixed(2)} /MWh`;
+                    setTicker('tickerTtf', prices[prices.length-1], prices[prices.length-2], '€');
+                }
+            } catch(e) { console.warn('TTF veri hatası:', e.message); }
+        }
+        fetchLiveData();
     })();
 
     // ─── ANIMATE BREAKDOWN BARS ───
@@ -3423,7 +3488,7 @@
             category: "Jeopolitik & Savaş Günlüğü",
             title: "Savaşın Akışı: Başlangıçtan Bugüne",
             author: "Reuters",
-            date: "28 Şubat - 12 Mart 2026",
+            date: "28 Şubat - 4 Nisan 2026",
             body: `
                 <p><strong>Not: Bu yazı Reuters’e aittir. Bazı kısımlar düzenlenmiş ve Türkçeleştirilmiştir; içerikten doğabilecek sorumluluk tarafımıza ait değildir.</strong></p>
 
@@ -3433,7 +3498,7 @@
                 </figure>
 
                 <p>ABD ve İsrail, Cumartesi günü İran’a karşı son on yılların en iddialı saldırılarını gerçekleştirdi; bu operasyonda İran’ın Dini Lideri Ayetullah Ali Hamaney hayatını kaybetti.</p>
-                <p>ABD Başkanı Donald Trump’ın başkanlık dönemindeki en büyük dış politika riski, Trump’ın yeniden seçilme kampanyasında kendisini “barış başkanı” olarak tanıtmasının ve İran’la yaşanan gerginlikte diplomatik bir çözümü tercih ettiğini belirtmesinin ardından geldi.</p>
+                <p>ABD Başkanı Donald Trump’ın başkanlık dönemindeki en büyük dış politika riski, Trump’ın seçim kampanyasında kendisini “barış başkanı” olarak konumlandırmasının ve İran gerginliğinde diplomasiyi tercih edeceğini açıklamasının hemen ardından patlak verdi.</p>
                 <p>ABD, Cumartesi günü İran hedeflerine Tomahawk seyir füzeleri, hayalet savaş uçakları ve savaşta ilk kez kullanılan, İran tasarımlarından esinlenerek üretilmiş düşük maliyetli tek yönlü saldırı insansız hava araçları dahil olmak üzere bir dizi silah kullandı.</p>
                 <p>İran, saldırıları sebepsiz ve yasadışı olarak nitelendirdi ve İsrail'e ve ABD üslerine ev sahipliği yapan Körfez ülkeleri dahil en az yedi ülkeye füze saldırısı düzenleyerek yanıt verdi.</p>
 
@@ -3441,15 +3506,15 @@
 
                 <p>İranlı yetkililer, ABD ve İsrail’in son on yılların en kapsamlı saldırısını İran hedeflerine düzenlemesinin ardından, İran’ın Dini Lideri Ali Hamaney’in Cumartesi günü öldürüldüğünü doğruladı.</p>
                 <p>İsrail ayrıca, saldırılar sonucunda İran askeri liderliğinden birkaç önemli ismin hayatını kaybettiğini açıkladı.</p>
-                <p>Son iki yılda İsrail’in düzenlediği askeri operasyonlar, İran’ın üst düzey askeri yetkililerinden bazılarının ölümüne yol açmış ve Orta Doğu’da bir zamanlar korku salan Tahran’ın vekil güçlerinden birçoğunu ciddi şekilde zayıflatmıştı.</p>
+                <p>İsrail’in son iki yılda düzenlediği operasyonlar, İran’ın üst düzey askeri yetkililerinin önemli bir bölümünü hayattan koparmış; Orta Doğu’da bir zamanlar geniş çevreleri tedirgin eden Tahran’ın vekil güçlerini de ciddi biçimde yıpratmıştı.</p>
 
                 <figure>
                     <img src="https://i.hizliresim.com/au3tmfp.png" alt="Komutanlar">
                     <figcaption><strong>*İsrail Savunma Kuvvetleri tarafından öldürüldüğü iddia ediliyor:</strong> 1) Mousavi, selefi Muhammed Bagheri’nin 2025 yılında ABD saldırıları sırasında hayatını kaybetmesi üzerine, Dini Lider’den sonra ikinci en yüksek rütbeli komutan olarak atandı. 2) Pakpour, selefi Hüseyin Salami’nin 2025 yılında ABD saldırıları sırasında hayatını kaybetmesi üzerine atandı. İran, yerine Ahmed Vahidi’nin geçtiğini belirtiyor. 3 Mart 2026 itibarıyla.</figcaption>
                 </figure>
 
-                <p>Pazar günü İran Cumhurbaşkanı Masoud Pezeshkian, kendisinin, yargı başkanı ve nüfuzlu Anayasa Konseyi'nden bir üyenin oluşturduğu bir liderlik konseyinin, geçici olarak Dini Lider'in görevlerini üstlendiğini açıkladı.</p>
-                <p>Devlet televizyonu Pazar günü, iki ülkenin İran'a bir kız ilkokulu bombalamayı da içeren bir dizi hava saldırısı düzenlemesinin ardından, güvenlik şefi Ali Larijani'nin ABD ve İsrail'i İran'ı yağmalamaya ve parçalamaya çalışmakla suçladığını ve “ayrılıkçı gruplara” herhangi bir eylemde bulunmaları halinde sert bir yanıtla karşılaşacakları konusunda uyardığını bildirdi. Reuters, devlet medyasının haberlerini bağımsız olarak doğrulayamadı.</p>
+                <p>Pazar günü İran Cumhurbaşkanı Masoud Pezeshkian, kendisi, yargı başkanı ve nüfuzlu Anayasa Konseyi'nden bir üyeden oluşan liderlik konseyinin Dini Lider'in görevlerini geçici olarak devraldığını açıkladı.</p>
+                <p>Devlet televizyonu Pazar günü, bir kız ilkokulu da dahil olmak üzere çeşitli hedeflere yönelik saldırıların ardından güvenlik şefi Ali Larijani'nin açıklamalarını aktardı: Larijani, ABD ve İsrail'i İran'ı yağmalamak ve bölmekle itham ederek “ayrılıkçı gruplara” eyleme geçmeleri halinde ağır bedel ödeyecekleri uyarısında bulundu. Reuters, devlet medyasının haberlerini bağımsız olarak doğrulayamadı.</p>
 
                 <figure>
                     <img src="https://i.hizliresim.com/j0zjmuh.png" alt="Savaş Fotoğrafı">
@@ -3467,7 +3532,7 @@
                     <figcaption>Kaynak: Marineregions.org (Münhasır Ekonomik Bölgeler)</figcaption>
                 </figure>
 
-                <p>Hormuz Boğazı’nın dar deniz yollarından Avrupa, Amerika Birleşik Devletleri ve Asya’ya doğru devam eden Körfez petrol sevkiyatları, dünyanın en büyük petrol transit darboğazını oluşturmuştur.</p>
+                <p>Körfez’den Avrupa, Amerika Birleşik Devletleri ve Asya’ya uzanan Hürmüz Boğazı geçişleri, dünyanın en büyük petrol transit darboğazını oluşturmaktadır.</p>
                 <p>Amerika Birleşik Devletleri ve İsrail’in İran’a son on yılların en iddialı saldırısını düzenlemesinin ardından, Tahran’ın boğazdaki transit trafiği kesintiye uğratma kabiliyeti piyasaları sarsmış ve ticareti felç etmiştir.</p>
                 <p>Petrol fiyatları şimdiden keskin bir artış gösterdi ve analistler, piyasaların Orta Doğu'daki çatışmanın boğazdan geçen tedarik üzerindeki etkisine odaklandığı bu günlerde fiyatların yüksek seviyelerde kalacağını öngörüyor.</p>
 
@@ -3485,7 +3550,7 @@
                     <figcaption>Not: Dünya deniz yoluyla petrol ticareti, Hürmüz Boğazı'ndan geçen hacimler hariç olmak üzere, ülke içi hacimleri kapsamamaktadır.</figcaption>
                 </figure>
 
-                <p>Dünya çapında tüketilen petrolün yaklaşık beşte birini ve büyük miktarda doğal gazı taşıyan İran ile Umman arasındaki boğazdan geçen deniz taşımacılığı, İran’ın ABD ve İsrail’in saldırılarına misilleme yapması sonucu bölgedeki gemilerin vurulmasıyla neredeyse tamamen durma noktasına geldi.</p>
+                <p>Dünya petrolünün yaklaşık beşte birini ve büyük miktarda doğal gazı taşıyan İran ile Umman arasındaki bu dar geçitten yapılan deniz taşımacılığı neredeyse tamamen durma noktasına geldi; bunun temel nedeni İran’ın ABD ve İsrail saldırılarına misilleme olarak bölgedeki gemilere saldırmasıydı.</p>
                 <p>Ticaret kaynakları Cumartesi günü, ABD ve İsrail'in İran'a saldırmasının ardından birçok tanker sahibi, büyük petrol şirketi ve ticaret firmasının Hürmüz Boğazı üzerinden ham petrol, yakıt ve sıvılaştırılmış doğal gaz sevkiyatlarını askıya aldığını bildirdi.</p>
                 <p>Büyük bir ticaret masasının üst düzey yöneticilerinden biri, “Gemilerimiz birkaç gün boyunca yerinde kalacak” dedi. Tanker takip sistemlerinden elde edilen uydu görüntüleri, gemilerin Birleşik Arap Emirlikleri'ndeki Fujairah gibi büyük limanların yanında beklediğini ve Hürmüz'den geçmediğini gösterdi.</p>
 
@@ -3536,7 +3601,7 @@
                 <figure><img src="https://www.reuters.com/graphics/IRAN-CRISIS/MAPS/znpnmelervl/cdn/images/screenshot2.jpg" alt="28 Şubat Uçuş Haritası"></figure>
 
                 <p>Asya-Avrupa arasında aktarmasız uçuşlar sunan havayolu şirketleri, Kafkasya üzerinden Afganistan’a doğru kuzeye ya da Mısır üzerinden Suudi Arabistan ve Umman’a doğru güneye uçarak, kapatılan Orta Doğu hava sahasını aşabilmektedir. Ancak bu durum, uçuş sürelerini ve yakıt tüketimini artırabilir; petrol fiyatlarının yükseldiği bir dönemde maliyetleri artırarak, uzun vadede bilet fiyatlarının yükselmesine yol açabilir.</p>
-                <p>Asya Pasifik Havayolları Birliği Başkanı Subhas Menon, “Şu anda tüm Orta Doğu bölgesi uçuşlara kapalı durumda ve bu durum bazı havayolları için büyük bir maliyet anlamına geliyor” dedi.</p>
+                <p>Asya Pasifik Havayolları Birliği Başkanı Subhas Menon, “Şu an tüm Orta Doğu bölgesi uçuşa kapalı ve bu, bazı havayolları için ciddi bir maliyet yükü anlamına geliyor” dedi.</p>
 
                 <figure>
                     <img src="https://i.hizliresim.com/ankx4tv.png" alt="Uçuş Rotası Haritası">
@@ -3606,7 +3671,7 @@
                     <figcaption>Kaynak: İsrail Savunma Kuvvetleri, Savaş Araştırmaları Enstitüsü ve AEI Kritik Tehditler Projesi</figcaption>
                 </figure>
 
-                <p>İsrail hava saldırıları, gece boyunca ve Cuma günü Beyrut’un güney banliyölerini vurdu; İran destekli Hizbullah ile tırmanan çatışmada şehir sokaklarını yerle bir ederek on binlerce Lübnanlıyı evlerinden etti.</p>
+                <p>İsrail hava saldırıları Cuma gecesi boyunca Beyrut’un güney banliyölerini vurdu; İran destekli Hizbullah ile tırmanan çatışmada şehir sokaklarını yerle bir ederek on binlerce Lübnanlıyı evlerinden etti.</p>
                 <p>İsrail, Hizbullah’ın kalesi niteliğindeki bu yoğun nüfuslu banliyölerdeki herkese, gece gökyüzünü aydınlatan saldırıları başlatmadan önce bölgeyi terk etmeleri emrini verdi. Daha önce de sivillere Lübnan’ın güney ve doğu bölgelerinden ayrılmaları uyarısında bulunmuştu.</p>
                 <p>Bu, İsrail'in Lübnan'a karşı verdiği en geniş kapsamlı tahliye emriydi ve binaları enkaza çeviren ve apartman bloklarının cephelerini yıkan bombardımanlardan önce büyük bir göç dalgasına yol açtı.</p>
                 <p>İsrail ordusu sözcüsü, sosyal medya platformu X'te tahliye emirlerini yayınladı. Çarşamba günü sözcü, Lübnan topraklarının yaklaşık %8'ini oluşturan güney Lübnan'ın geniş bir bölümünü terk etmelerini emretti. Perşembe günü sözcü, Beyrut'un güney banliyöleri için, birçok banliyö ve diğer kasabaları içeren kabaca çizilmiş bir harita ile birlikte, sadece bu bölgelerin bir kısmından bahseden yazılı talimatlar içeren tahliye emirleri yayınladı. Hangi bölgelerin tahliye edilmesi gerektiğinin netleştirilmesi istendiğinde, IDF sözcüsü Reuters'a haritanın “belirsiz” olduğunu ve metnin “önemli olan” olduğunu söyledi.</p>
@@ -3645,8 +3710,8 @@
                 </figure>
 
                 <p>İran’daki çatışmanın, dünya petrolünün yaklaşık beşte birinin geçtiği Hürmüz Boğazı’nı fiilen kapatması ve ham petrol fiyatlarının ani bir artışa neden olmasıyla, küresel piyasalar çalkantılı bir haftayı geride bırakıyor.</p>
-                <p>Asya piyasaları özellikle ağır darbe aldı. Kore endeksi KOSPI, çatışmanın başlamasından Çarşamba gününe kadar yaklaşık %20 düştü ve 4 Mart'ta %12 ile tarihindeki en büyük düşüşü kaydetti. O günden bu yana toparlanmasına rağmen, ABD saldırısından önceki geçen haftaya göre genel olarak %11 düşüşte kalmaya devam ediyor. Japonya'nın Nikkei 225 endeksi de geçen haftaya göre %6 düşüşle kapandı.</p>
-                <p>Japonya ve Güney Kore, küresel petrol ithalatında ilk beş ülke arasında yer alıyor ve ithalatlarının sırasıyla yaklaşık %95 ve %70'ini oluşturan Orta Doğu ham petrolüne en fazla bağımlı olan ülkeler. Küresel petrol ithalatında üçüncü sırada yer alan Hindistan, İran savaşı sırasında ABD'den Rus petrolü ithal etmek için 30 günlük muafiyet aldığından, piyasalar yaklaşık %3 geriledi.</p>
+                <p>Asya piyasaları özellikle ağır darbe aldı. Kore endeksi KOSPI, çatışmanın başlamasından Çarşamba gününe kadar yaklaşık %20 geriledi ve 4 Mart'ta %12'lik düşüşle tarihinin en sert gününü yaşadı. O günden bu yana toparlanma sürecine girse de ABD saldırısından önceki haftaya kıyasla genel olarak %11 düşüşte kalmaya devam ediyor. Japonya'nın Nikkei 225 endeksi de önceki haftaya göre %6 kayıpla kapandı.</p>
+                <p>Küresel petrol ithalatında ilk beş arasında yer alan Japonya ve Güney Kore, Orta Doğu ham petrolüne en bağımlı ekonomiler arasında öne çıkıyor; bu iki ülkenin petrol ithalatının sırasıyla yaklaşık %95 ve %70'i Orta Doğu'dan karşılanıyor. Küresel petrol ithalatında üçüncü sıradaki Hindistan ise İran savaşı döneminde ABD'den Rus petrolü ithal etmek için 30 günlük muafiyet aldığından piyasalar yalnızca yaklaşık %3 geriledi.</p>
 
                 <h4>Saldırılar, Tahran üzerinde zehirli bulutlar oluşturuyor — <strong style="color:var(--text); font-size:1.15em;">10 Mart</strong></h4>
 
@@ -3657,7 +3722,7 @@
 
                 <p>İsrail’in 7 Mart gecesi İran’daki yakıt depolarını ve rafinerileri vurduğunu açıklamasının ardından, Tahran çevresindeki yakıt depoları ve rafinerilerden yoğun siyah dumanlar yükseldi.</p>
                 <p>İran Dışişleri Bakanlığı Sözcüsü Esmaeil Baghaei, bu büyük çaplı saldırının çatışmanın “tehlikeli yeni bir aşamasını” işaret ettiğini ve bir savaş suçu teşkil ettiğini söyledi.</p>
-                <p>“Yakıt depolarını hedef alarak saldırganlar, havaya tehlikeli maddeler ve zehirli maddeler salıyor, sivilleri zehirliyor, çevreye büyük zarar veriyor ve çok sayıda insanın hayatını tehlikeye atıyor,” diye yazdı.</p>
+                <p>“Yakıt depolarını hedef alarak saldırganlar, havaya tehlikeli ve zehirli maddeler salıyor, sivilleri zehirliyor, çevreye büyük zarar veriyor ve çok sayıda insanın hayatını tehlikeye atıyor,” diye yazdı.</p>
                 <p>İsrail ordusu sözcüsü Yarbay Nadav Shoshani gazetecilere, depoların balistik füzeler için itici yakıt üretimi veya depolaması da dahil olmak üzere İran'ın savaş çabalarına yakıt sağlamak için kullanıldığını söyledi. “Bunlar yasal askeri hedeflerdir,” dedi.</p>
 
                 <figure>
@@ -3665,7 +3730,7 @@
                     <figcaption>Kaynak: Savaş Araştırmaları Enstitüsü ve AEI Kritik Tehditler Projesi</figcaption>
                 </figure>
 
-                <p>Hidrokarbonlar ile kükürt ve azot dioksitleri de dahil olmak üzere zararlı kimyasallar yüklü yoğun duman, nüfusu 9 milyondan fazla olan Tehran’ın büyük bir bölümünü kapladı. Ancak ABD ve İsrail saldırıları başladıktan sonra şehirden kaç kişinin ayrıldığı bilinmiyor.</p>
+                <p>Hidrokarbonlar ile kükürt ve azot dioksitleri de dahil olmak üzere zararlı kimyasallar yüklü yoğun duman, nüfusu 9 milyonu aşan Tahran’ın büyük bir bölümünü kapladı. Ancak ABD ve İsrail saldırıları başladıktan sonra şehirden kaç kişinin ayrıldığı bilinmiyor.</p>
                 <p>İranlı yetkililer, vatandaşlara mümkün olduğunca evde kalmaları uyarısında bulundu ve çocuklar, yaşlılar, kalp ve akciğer hastaları ile hamile kadınların tamamen dışarı çıkmaktan kaçınmalarını tavsiye etti.</p>
                 <p>Ayrıca Pakistan Meteoroloji Dairesi, rüzgarların kirleticileri sınırın ötesine taşıyarak Pakistan’ın batı bölgelerine ulaştırabileceği konusunda uyarıda bulundu.</p>
 
@@ -3723,6 +3788,60 @@
                     <img src="https://i.ibb.co/99dy64zN/Gemini-Generated-mage-7tqpee7tqpee7tqp.png" alt="Gemi Listesi">
                     <figcaption>Kaynak: Institute for the Study of War ve AEI Critical Threats Project.</figcaption>
                 </figure>
+
+                <h4>Körfez petrol üreticileri Hürmüz'ü devre dışı bırakacak alternatif güzergahlara yöneldi — <strong style="color:var(--text); font-size:1.15em;">17 Mart</strong></h4>
+
+                <figure>
+                    <img src="https://i.hizliresim.com/a5wct50.png" alt="Körfez Petrol Güzergahları">
+                </figure>
+
+                <p>İran, küresel petrol ve sıvılaştırılmış doğal gaz arzının yaklaşık %20'sini taşıyan Hürmüz Boğazı üzerinden geçen deniz trafiğini neredeyse tamamen durdurmaya devam ediyor. Boğazın fiilen kapanmasıyla birlikte Körfez ihracatçıları, akışlarını boğazı devre dışı bırakan alternatif boru hatlarına yönlendiriyor. Uluslararası Enerji Ajansı'na (IEA) göre bu güzergahlar üzerinden sevkiyatlar başlamış ve giderek artıyor.</p>
+
+                <p>Suudi Arabistan, Kızıldeniz'deki Yanbu limanına uzanan Doğu-Batı boru hattı üzerinden akışı hızla artırıyor; BAE ise kara sahası petrol sahalarını Umman Körfezi'ndeki Fujairah limanına bağlayan Habshan-Fujairah boru hattı üzerinden ihracatını yükseltiyor.</p>
+
+                <p>IEA'nın Mart Petrol Piyasası Raporu'na göre Doğu-Batı boru hattındaki akış, 2025 ortalaması olan günlük 1,7 milyon varilden (mb/g) 9 Mart'ta rekor düzeyde 5,9 mb/g'e fırladı; boru hattının önümüzdeki günler içinde 7 mb/g'lik tam kapasitesine ulaşması bekleniyor.</p>
+
+                <figure>
+                    <img src="https://i.hizliresim.com/jjmp0m4.png" alt="Suudi Arabistan Doğu-Batı Boru Hattı">
+                </figure>
+
+                <p>BAE de benzer bir hamle yapıyor. IEA verilerine göre Habshan-Fujairah boru hattındaki akış, 1-10 Mart arasında günlük 1,8 mb/g ortalamasıyla boru hattının bildirilen maksimum kapasitesine ulaştı; bu seviye, kriz öncesindeki yaklaşık 1 mb/g düzeyinin neredeyse iki katı.</p>
+
+                <figure>
+                    <img src="https://i.hizliresim.com/7pb2fia.png" alt="BAE Habshan-Fujairah Boru Hattı">
+                </figure>
+
+                <p>Körfez ülkeleri Hürmüz'e alternatif arayışlarını sürdürürken, TankerTracker.com ve Kpler verilerine göre İran günlük 1,1 ila 1,5 milyon varil arasında petrol ihracatını sürdürmeye devam ediyor.</p>
+
+                <p>Cuma günü ABD kuvvetleri, İran'ın petrol ihracatının yaklaşık %90'ının merkezi olan ve Tahran'ın en hassas stratejik noktalarından biri olarak uzun süredir değerlendirilen Hark Adası'nı vurdu. Cumhurbaşkanı Trump sosyal medyadan yaptığı açıklamada ABD kuvvetlerinin bölgedeki "her askeri hedefi tamamen yok ettiğini" belirterek, İran'ın boğazdaki deniz trafiğini engellemeye devam etmesi halinde petrol altyapısının da hedef alınabileceği uyarısında bulundu.</p>
+
+                <p>Piyasalar, saldırıların Hark Adası'nın boru hatları, terminaller ve depolama tanklarından oluşan karmaşık ağına zarar verip vermediğini yakından takip etti. En küçük bir aksama bile küresel arzı daha da sıkıştırabilir; bu durum, halihazırda son derece oynak seyreden piyasalar üzerindeki baskıyı daha da artırır.</p>
+
+                <figure>
+                    <img src="https://i.hizliresim.com/eobsdnd.png" alt="Hark Adası Saldırısı">
+                </figure>
+
+                <h4>İsrail, İran güvenlik şefi Ali Larijani'yi hava saldırısıyla öldürdü — <strong style="color:var(--text); font-size:1.15em;">18 Mart</strong></h4>
+
+                <figure>
+                    <img src="https://i.hizliresim.com/gyl7rel.png" alt="Ali Larijani suikastı">
+                </figure>
+
+                <p>İsrail, 18 Mart 2026'da gerçekleştirdiği hedefe yönelik hava saldırısında İran'ın üst düzey güvenlik yetkilisi Ali Larijani'yi hayatını kaybettirdi. Larijani; İran parlamentosunun eski başkanı, nükleer müzakerelerin kilit ismi ve Yüksek Ulusal Güvenlik Konseyi'nin eski sekreteri sıfatıyla İran devletinin en kritik figürlerinden biriydi. Saldırı, İsrail'in İran yönetim kademesini hedef alma stratejisindeki çarpıcı bir tırmanmayı gözler önüne serdi.</p>
+
+                <p>Larijani'nin ölümü, Tahran'da şok dalgası yarattı. İran yönetimi saldırıyı sert bir dille kınadı ve kapsamlı bir misilleme tehdidinde bulundu. Olayın zamanlaması son derece kritikti; zira bölge, halihazırda Hürmüz Boğazı'nı tehdit eden tansiyonu yüksek bir ortamda derinleşen istikrarsızlıkla boğuşuyordu. Enerji piyasaları ise bu gelişmeye sert tepki vererek tırmanan çatışmanın tedarik yolları üzerindeki olası etkilerine ilişkin kaygılar nedeniyle yeniden yukarı yönlü harekete geçti.</p>
+
+                <h4>Düşürülen uçaklar Trump için yeni tehlike; Tahran kayıp ABD pilotunu arıyor — <strong style="color:var(--text); font-size:1.15em;">4 Nisan</strong></h4>
+
+                <figure>
+                    <img src="https://i.hizliresim.com/213wcpr.png" alt="Düşürülen ABD uçakları">
+                </figure>
+
+                <p>4 Nisan 2026'da ABD askeri uçaklarının düşürülmesi, çatışmanın seyrini köklü biçimde değiştirdi. İran veya İran destekli grupların müdahalesiyle gerçekleştiği değerlendirilen bu olayın ardından kayıp ABD pilotuna yönelik yürütülen arama operasyonu, Trump yönetimini olağanüstü hassas bir krizle yüz yüze bıraktı.</p>
+
+                <p>Durumun vahametini artıran en kritik unsur, İran'ın düşürülen uçaklara ait pilotu veya ekip üyelerini bulmaya yönelik operasyon başlatmış olmasıydı. Böyle bir gelişme; esir alınan personelin pazarlık kozu olarak kullanılması, insani kriz senaryolarının gündeme gelmesi ve Trump'ın siyasi açıdan son derece riskli bir köşeye sıkışması anlamına geliyordu.</p>
+
+                <p>Olayın yaşandığı dönemde piyasalar zaten gergin bir seyir izlemekteydi. ABD uçaklarının düşürülmesi, yalnızca askeri dengeleri değil; çatışmanın doğrudan ABD-İran boyutuna taşınıp taşınmayacağına dair belirsizliği de derinleştirdi. Analistler bu gelişmeyi, ABD'yi doğrudan çatışmaya çekebilecek kritik bir eşik olarak değerlendirdi; bu da küresel petrol ve gaz piyasalarına yansıyan jeopolitik risk primini daha da yukarı taşıdı.</p>
             `
         },
         // YENİ EKLENEN HÜRMÜZ BOĞAZI MAKALELERİ
@@ -3869,7 +3988,7 @@
                 <figure style="margin:8px 0 4px;"><img src="https://i.ibb.co/fd5jYRDN/Gemini-Generated-mage-ks2t2lks2t2lks2t.png" alt="ABD Ham Petrol Fiyatları WTI" style="width:100%;border-radius:8px;"></figure>
                 <p style="font-size:12px;color:var(--text-3);margin-top:0;margin-bottom:16px;"><em>Kaynak: Reuters</em></p>
 
-                <p><strong>ABD Petrol Fiyat Artışı</strong></p>
+                <p><strong>ABD Benzin Fiyat Artışı</strong></p>
                 <figure style="margin:8px 0 4px;"><img src="https://i.hizliresim.com/hx1k957.png" alt="ABD Benzin Fiyatları" style="width:100%;border-radius:8px;"></figure>
                 <p style="font-size:12px;color:var(--text-3);margin-top:4px;margin-bottom:16px;"><em>Kaynak: Investopedia / AAA</em></p>
                 <p>Enerji fiyatlarındaki bu hızlı artış, yalnızca tüketicilerin cebini etkilemekle kalmadı; küresel finansal piyasalar da bu gelişmeden doğrudan etkilendi. Petrol ve enerji maliyetlerindeki şok, yatırımcıların risk algısını değiştirerek borsalarda sert dalgalanmalara yol açtı.</p>
