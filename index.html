@@ -717,6 +717,26 @@
         .scenario-row span:last-child { font-family: var(--font-mono); font-weight: 500; color: var(--text); }
 
         /* ─── ARTICLES ─── */
+        .twitter-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(29, 155, 240, 0.07);
+            border: 1px solid rgba(29, 155, 240, 0.25);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 28px;
+            font-size: 14px;
+            color: var(--text-2);
+            line-height: 1.5;
+        }
+        .twitter-notice svg { color: #1d9bf0; }
+        .twitter-notice a {
+            color: #1d9bf0;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .twitter-notice a:hover { text-decoration: underline; }
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -1949,6 +1969,11 @@
             <div class="section-label">§ 04 — Ekonomik Analiz</div>
             <h2 class="section-title">Araştırma & Yorum</h2>
             <p class="section-sub">Çatışmanın belirli ekonomik boyutlarına ilişkin derinlemesine analizler; Savaş Bilançosu ekibi tarafından kaleme alınmıştır.</p>
+
+            <div class="twitter-notice">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;margin-top:1px"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.622L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span>Daha fazla makale ve analiz için Twitter hesabımızı ziyaret edin: <a href="https://x.com/SavasBilancosu" target="_blank" rel="noopener">@SavasBilancosu</a></span>
+            </div>
 
             <div class="articles-grid">
                 <!-- TIKLANABİLİR KARTLAR -->
